@@ -1,0 +1,151 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true,
+      "experimentalDecorators": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "commonjs": true,
+    "worker": true
+  },
+  "plugins": ["ava", "react", "import", "require-jsdoc-except"],
+  "rules": {
+    "ava/assertion-arguments": "error",
+    "ava/max-asserts": ["off", 5],
+    "ava/no-async-fn-without-await": "error",
+    "ava/no-cb-test": "off",
+    "ava/no-duplicate-modifiers": "error",
+    "ava/no-identical-title": "error",
+    "ava/no-ignored-test-files": "error",
+    "ava/no-invalid-end": "error",
+    "ava/no-nested-tests": "error",
+    "ava/no-only-test": "error",
+    "ava/no-skip-assert": "error",
+    "ava/no-skip-test": "error",
+    "ava/no-statement-after-end": "error",
+    "ava/no-todo-implementation": "error",
+    "ava/no-todo-test": "warn",
+    "ava/no-unknown-modifiers": "error",
+    "ava/prefer-async-await": "error",
+    "ava/prefer-power-assert": "off",
+    "ava/test-ended": "error",
+    "ava/test-title": ["error", "if-multiple"],
+    "ava/use-t-well": "error",
+    "ava/use-t": "error",
+    "ava/use-test": "error",
+    "ava/use-true-false": "error",
+
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+
+    "import/first": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "internal",
+          "external",
+          ["parent", "sibling"],
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "import/named": "error",
+    "import/no-absolute-path": "error",
+    "import/no-self-import": "error",
+    "import/no-useless-path-segments": "error",
+
+    "require-jsdoc-except/require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": true,
+          "ClassDeclaration": true,
+          "ArrowFunctionExpression": true,
+          "FunctionExpression": true
+        },
+        "ignore": [
+          "constructor",
+          "render",
+          "componentWillMount",
+          "componentDidUpdate",
+          "mapStateToProps",
+          "mapDispatchToProps",
+          "mergeProps",
+          "componentWillUnmount"
+        ]
+      }
+    ],
+    "valid-jsdoc": [
+      "error",
+      {
+        "prefer": { "return": "returns" },
+        "preferType": {
+          "object": "Object",
+          "array": "Array",
+          "Function": "function",
+          "Boolean": "boolean",
+          "Number": "number",
+          "int": "number",
+          "Int": "number",
+          "Integer": "number",
+          "integer": "number",
+          "float": "number",
+          "Float": "number",
+          "Void": "void",
+          "String": "string",
+          "error": "Error",
+          "node": "Node"
+        },
+        "requireReturn": true,
+        "requireReturnType": true,
+        "matchDescription": ".+",
+        "requireParamDescription": true,
+        "requireReturnDescription": true
+      }
+    ],
+    "for-direction": "error",
+    "getter-return": "error",
+
+    "no-await-in-loop": "error",
+    "no-compare-neg-zero": "error",
+    "no-cond-assign": "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-constant-condition": "error",
+    "no-control-regex": "error",
+    "no-debugger": "error",
+    "no-dupe-args": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-empty": "error",
+    "no-empty-character-class": "error",
+    "no-ex-assign": "error",
+    "no-extra-boolean-cast": "error",
+    "no-extra-semi": "error",
+    "no-func-assign": "error",
+    "no-inner-declarations": "error",
+    "no-invalid-regexp": "error",
+    "no-irregular-whitespace": "error",
+    "no-obj-calls": "error",
+    "no-prototype-builtins": "warn",
+    "no-regex-spaces": "error",
+    "no-sparse-arrays": "error",
+    "no-template-curly-in-string": "warn",
+    "no-unexpected-multiline": "error",
+    "no-unreachable": "error",
+    "no-unsafe-finally": "error",
+    "no-unsafe-negation": "error",
+    "use-isnan": "error",
+    "valid-typeof": "error"
+  }
+}

@@ -1,0 +1,18 @@
+//include partials
+@import "fonts";
+@import "burger-menu";
+
+//@import "../../node_modules/react-quill/dist/quill.snow";
+@import "../../node_modules/normalize.css/normalize";
+
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+  background-color: #fff;
+  color: #333;
+}
+
+ul {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}

@@ -1,0 +1,26 @@
+# Keep these files out of the repo
+*.sql
+
+#IDEs
+.idea
+.vscode
+
+#npm
+node_modules
+
+# Hidden files
+*.DS_Store
+*Thumbs.db
+*.sass-cache*
+*~imageoptim*
+
+/build
+
+#db structure
+!react-dashboard/db-structure/*.sql
+
+src/config.json
+.env
+
+#log files
+*.log
