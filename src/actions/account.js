@@ -1,4 +1,4 @@
-import web3 from "../web3/web3";
+import web3 from "../web3";
 
 /**
  * Creates a redux action for fetching the account
@@ -19,9 +19,8 @@ const fetchAccountAction = (error, isFetching, account) => ({
  * @returns {void}
  */
 export const fetchAccount = () => dispatch => {
+  dispatch(fetchAccountAction(false, true));
   web3.eth.getCoinbase((err, account) => {
-    dispatch(fetchAccountAction(false, true));
-
     if (!err) {
       dispatch(fetchAccountAction(false, false, account));
     } else {

@@ -12,7 +12,7 @@ import Map from "../components/Map";
 import { fetchAccount } from "../actions/account";
 import { getAccount } from "../reducers";
 import { borders, colors } from "../utilities/style";
-import web3 from "../web3/web3";
+import web3 from "../web3";
 
 const Description = styled.div`
   display: block;

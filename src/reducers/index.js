@@ -4,6 +4,7 @@ import { reducer as burgerMenu } from "redux-burger-menu";
 
 import { wrap } from "../utilities/reducer";
 import account, * as fromAccount from "./account";
+import project, * as fromProject from "./project";
 
 /**
  * Checks if the burger menu is open
@@ -18,8 +19,18 @@ export const isFetchingAccount = wrap(
   state => state.account
 );
 
+export const getProjects = wrap(
+  fromProject.getProjects,
+  state => state.project
+);
+export const isFetchingProject = wrap(
+  fromProject.isFetchingProjects,
+  state => state.project
+);
+
 export default combineReducers({
   routing: routerReducer,
   account,
+  project,
   burgerMenu
 });

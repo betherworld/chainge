@@ -35,4 +35,4 @@ export const getAccount = state => state.account;
  * @param {Object} state The redux state
  * @returns {boolean} Whether we are fetching
  */
-export const isFetchingAccount = state => state.account;
+export const isFetchingAccount = state => state.isFetching;
