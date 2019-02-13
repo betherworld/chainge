@@ -3,7 +3,6 @@ import { routerReducer } from "react-router-redux";
 import { reducer as burgerMenu } from "redux-burger-menu";
 
 import { wrap } from "../utilities/reducer";
-import page, * as fromPage from "./page";
 import account, * as fromAccount from "./account";
 
 /**
@@ -13,9 +12,6 @@ import account, * as fromAccount from "./account";
  */
 export const getBurgerMenuOpen = state => state.burgerMenu.isOpen;
 
-export const getPageById = wrap(fromPage.getPageById, state => state.page);
-export const getPages = wrap(fromPage.getPages, state => state.page);
-
 export const getAccount = wrap(fromAccount.getAccount, state => state.account);
 export const isFetchingAccount = wrap(
   fromAccount.isFetchingAccount,
@@ -24,7 +20,6 @@ export const isFetchingAccount = wrap(
 
 export default combineReducers({
   routing: routerReducer,
-  page,
   account,
   burgerMenu
 });

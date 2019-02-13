@@ -68,14 +68,14 @@ class Claim extends React.PureComponent {
               </Box>
               <Box width={[1, 1, 1 / 2, 1 / 2]} pr={2}>
                 If the community decides your proof is sufficient, you will be
-                awarded $WHATEVER_AMOUNT$ of ETH immediately and you will also
-                obtain $HOWEVER_MANY$ gatherers token in order to vote for
-                community projects. The claim will cost you a few ETH but the
-                immediate reward will more than compensate for this. However if
-                you try to cheat the system by complotting with other community
-                memebers, the whole community will be sanctioned by receiving
-                less money in the next campaign. This means it is in your
-                interest to honestly verify claims.
+                awarded the corresponding amount of ETH immediately and you will
+                also obtain gatherers token in order to vote on community
+                projects. The claim will cost you a few ETH but the immediate
+                reward will more than compensate for this. However if you try to
+                cheat the system by complotting with other community memebers,
+                the whole community will be sanctioned by receiving less money
+                in the next campaign. This means it is in your interest to
+                honestly verify claims.
               </Box>
             </Flex>
             <Hr />
