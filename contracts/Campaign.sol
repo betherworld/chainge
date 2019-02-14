@@ -179,7 +179,6 @@ contract Campaign {
             CommunityProject memory communityProject = communityProjects[i];
             uint votesReceived = communityProject.voteCount;
             uint share = (votesReceived * precision) / voteCountTotal;
-            communityProjects[i].account.transfer(1);
             uint payOutAmount = (voteCountTotal / precision) * share;
             communityProject.account.transfer(payOutAmount);
         }
@@ -193,10 +192,6 @@ contract Campaign {
 
 
     // ***** PROOFING ******
-
-    function getTokens(address addr, uint num) public{
-        gatherersToken[addr] += num;
-    }
 
     function _impactGoalsAchieved() internal returns (bool) {
         //check, whether impactGoals were achieved
@@ -259,4 +254,16 @@ contract Campaign {
         gatherersToken[action.user] += action.reward;
         action.user.transfer(action.reward * paymentBaseUnit);
     }
+
+
+    // ***** DEBUGGING *****
+
+    function getTokens(address addr, uint num) public{
+        gatherersToken[addr] += num;
+    }
+
+    function testFunction() public returns (bool) {
+        return true;
+    }
+
 } 
