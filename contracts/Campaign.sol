@@ -257,7 +257,7 @@ contract Campaign {
 
     function saveData(uint lat, uint long, uint temperature, uint humidityAir, bool humidityGround) external {
         require(msg.sender == sensorAccount);
-        dataPoints.push(Data(lat, long, temperature, humidity));
+        dataPoints.push(Data(lat, long, temperature, humidityAir, humidityGround));
     }
 
     function _impactGoalsAchieved() internal returns (bool) {
