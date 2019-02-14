@@ -14,7 +14,7 @@ import { COLOR_HOVER } from "../components/Button";
 import { COLOR_DISABLED } from "../components/Button";
 import { getActions } from "../reducers";
 import { fetchActions, submitAction } from "../actions/action";
-import { getCampaign } from "../reducers/campaign";
+import { getCampaign } from "../reducers";
 import { fetchCampaign } from "../actions/campaign";
 
 const Form = styled.form`
@@ -79,6 +79,7 @@ const Warning = styled.div`
 `;
 
 const Action = styled(Box)`
+  position: relative;
   margin: 1rem 0;
   cursor: pointer;
 
@@ -92,6 +93,9 @@ const Action = styled(Box)`
     color: #fff;
     padding: 1rem;
     border-radius: ${borders.radius};
+
+    height: 100%;
+    box-sizing: border-box;
   }
 `;
 

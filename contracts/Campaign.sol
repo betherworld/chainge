@@ -279,7 +279,7 @@ contract Campaign {
         string submissionData;
         address payable user;
     }
-    
+
     Action[] public actions;
 
     function getActionsLength() external view returns (uint) {
@@ -299,7 +299,7 @@ contract Campaign {
         actions[_actionId].done = true;
 
         //Automatically verifies all the submissions. Needs to be adjusted in a final version
-        verifySubmission(_actionId);
+        //verifySubmission(_actionId);
     }
 
     function _checkSubmissionType0(uint _actionId) internal returns (bool){
@@ -308,10 +308,9 @@ contract Campaign {
 
     function verifySubmission(uint _actionId) public{
         require(_actionId < actions.length, "there is no action with this id");
-        Action memory action = actions[_actionId];
-        require(action.done == true, "action is not done yet");
-        require(action.verified == false, "action is already verified");
-        uint actionType = action.proofingType;
+        require(actions[_actionId].done == true, "action is not done yet");
+        require(actions[_actionId].verified == false, "action is already verified");
+        uint actionType = actions[_actionId].proofingType;
         bool verificationSuccessful;
 
         if(actionType == 0) {
@@ -320,10 +319,10 @@ contract Campaign {
         //Additional actionTypes
 
         if(verificationSuccessful) {
-            action.verified = true;
+            actions[_actionId].verified = true;
             _getReward(_actionId);
         } else {
-            action.done = false;
+            actions[_actionId].done = false;
         }
     }
 

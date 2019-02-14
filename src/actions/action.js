@@ -112,14 +112,13 @@ export const submitAction = (actionIndex, data) => dispatch => {
   dispatch(submitActionAction(false, true, actionIndex, data));
 
   return new Promise((resolve, reject) => {
-    resolve(dispatch(submitActionAction(false, false, actionIndex, data)));
-    /*campaignContract.submitAction(projectIndex, data, error => {
+    campaignContract.submitAction(actionIndex, data, error => {
       if (error) {
         return reject(error);
       }
 
       resolve(dispatch(submitActionAction(false, false, actionIndex, data)));
-    });*/
+    });
   }).catch(error => {
     dispatch(submitActionAction(error, false, actionIndex, data));
     return Promise.reject(error);

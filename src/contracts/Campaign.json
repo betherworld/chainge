@@ -1,6 +1,29 @@
 [
 	{
 		"constant": false,
+		"inputs": [],
+		"name": "startVoting",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ratioProject",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [
 			{
 				"name": "_actionTitle",
@@ -27,15 +50,6 @@
 	},
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "endVoting",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
 		"inputs": [
 			{
 				"name": "addr",
@@ -53,180 +67,55 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "lat",
-				"type": "uint256"
-			},
-			{
-				"name": "long",
-				"type": "uint256"
-			},
-			{
-				"name": "temperature",
-				"type": "uint256"
-			},
-			{
-				"name": "humidityAir",
-				"type": "uint256"
-			},
-			{
-				"name": "humidityGround",
-				"type": "bool"
-			}
-		],
-		"name": "saveData",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_sensorAccount",
-				"type": "address"
-			}
-		],
-		"name": "setSensorAccount",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"name": "num",
-				"type": "uint256"
-			}
-		],
-		"name": "setTokens",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
+		"constant": true,
 		"inputs": [],
-		"name": "startCampaign",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "startVoting",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_actionId",
-				"type": "uint256"
-			},
-			{
-				"name": "_actionSubmissionData",
-				"type": "string"
-			}
-		],
-		"name": "submitAction",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "testFunction",
+		"name": "startTimeCampaign",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_actionId",
 				"type": "uint256"
 			}
 		],
-		"name": "verifySubmission",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "communityProjectId",
-				"type": "uint256"
-			}
-		],
-		"name": "votedEvent",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "fallback"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_communityProjectId",
-				"type": "uint256"
-			},
-			{
-				"name": "_voteCount",
-				"type": "uint256"
-			}
-		],
-		"name": "vote",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "campaignInProgress",
+		"name": "runTimeDonations",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "donationInProgress",
 		"outputs": [
 			{
 				"name": "",
 				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "title",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -267,20 +156,6 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "country",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "description",
 		"outputs": [
 			{
@@ -295,7 +170,116 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "donationInProgress",
+		"name": "runTimeVoting",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "lat",
+				"type": "uint256"
+			},
+			{
+				"name": "long",
+				"type": "uint256"
+			},
+			{
+				"name": "temperature",
+				"type": "uint256"
+			},
+			{
+				"name": "humidityAir",
+				"type": "uint256"
+			},
+			{
+				"name": "humidityGround",
+				"type": "bool"
+			}
+		],
+		"name": "saveData",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_actionId",
+				"type": "uint256"
+			},
+			{
+				"name": "_actionSubmissionData",
+				"type": "string"
+			}
+		],
+		"name": "submitAction",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "actions",
+		"outputs": [
+			{
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"name": "reward",
+				"type": "uint256"
+			},
+			{
+				"name": "done",
+				"type": "bool"
+			},
+			{
+				"name": "proofingType",
+				"type": "uint256"
+			},
+			{
+				"name": "verified",
+				"type": "bool"
+			},
+			{
+				"name": "submissionData",
+				"type": "string"
+			},
+			{
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "campaignInProgress",
 		"outputs": [
 			{
 				"name": "",
@@ -307,9 +291,68 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_actionId",
+				"type": "uint256"
+			}
+		],
+		"name": "verifySubmission",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "startCampaign",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_communityProjectId",
+				"type": "uint256"
+			},
+			{
+				"name": "_voteCount",
+				"type": "uint256"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"name": "num",
+				"type": "uint256"
+			}
+		],
+		"name": "setTokens",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
-		"name": "getActionsLength",
+		"name": "getCommunityProjectsLength",
 		"outputs": [
 			{
 				"name": "",
@@ -323,7 +366,72 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "getCommunityProjectsLength",
+		"name": "startTimeDonations",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "endVoting",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "votingInProgress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "country",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "testFunction",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getActionsLength",
 		"outputs": [
 			{
 				"name": "",
@@ -356,34 +464,6 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "goalScore",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "ratioProject",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "runTimeCampaign",
 		"outputs": [
 			{
@@ -398,7 +478,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "runTimeDonations",
+		"name": "goalScore",
 		"outputs": [
 			{
 				"name": "",
@@ -410,45 +490,17 @@
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "runTimeVoting",
-		"outputs": [
+		"constant": false,
+		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
+				"name": "_sensorAccount",
+				"type": "address"
 			}
 		],
+		"name": "setSensorAccount",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "startTimeCampaign",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "startTimeDonations",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -466,31 +518,26 @@
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [],
-		"name": "title",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
 		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "votingInProgress",
-		"outputs": [
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
 			{
-				"name": "",
-				"type": "bool"
+				"indexed": true,
+				"name": "communityProjectId",
+				"type": "uint256"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"name": "votedEvent",
+		"type": "event"
 	}
 ]

@@ -106,7 +106,7 @@ class Vote extends React.PureComponent {
     const { campaign, projects, voteTokens } = this.props;
 
     const votingEnabled =
-      (campaign && campaign.votingInProgress) || voteTokens > 0;
+      campaign && campaign.votingInProgress && voteTokens > 0;
     let date = 0;
 
     if (campaign) {
@@ -143,7 +143,7 @@ class Vote extends React.PureComponent {
             </Title>
 
             <br />
-            {!votingEnabled && date && (
+            {(!campaign || !campaign.votingInProgress) && date && (
               <Warning>
                 <h2>Warning</h2>
                 <p>
@@ -167,8 +167,8 @@ class Vote extends React.PureComponent {
                     <h2>{project.title}</h2>
                     <p>{project.description}</p>
 
-                    {votingEnabled && (
-                      <Votes>
+                    <Votes>
+                      {votingEnabled && (
                         <NegativeButton
                           onClick={() =>
                             this.props.voteForProject(project.index)
@@ -176,10 +176,10 @@ class Vote extends React.PureComponent {
                         >
                           <FaSortUp />
                         </NegativeButton>
-                        <br />
-                        {project.voteCount}
-                      </Votes>
-                    )}
+                      )}
+                      <br />
+                      {project.voteCount}
+                    </Votes>
                   </div>
                 </Project>
               ))}
