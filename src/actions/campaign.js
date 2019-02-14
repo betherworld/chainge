@@ -57,8 +57,6 @@ const fetchCampaignAction = (error, isFetching, campaign) => ({
 export const fetchCampaign = () => dispatch => {
   dispatch(fetchCampaignAction(false, true));
 
-  console.log(campaignContract);
-
   return Promise.all([
     promiseify(campaignContract.title.call)(),
     promiseify(campaignContract.country.call)(),

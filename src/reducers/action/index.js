@@ -43,6 +43,17 @@ const actionReducer = (
         actions:
           !action.error && !action.isFetching ? action.actions : state.actions
       };
+    case "SUBMIT_ACTION":
+      if (!action.error && !action.isFetching) {
+        return {
+          ...state,
+          actions: state.actions.map(a =>
+            a.index == action.actionIndex ? { ...a, done: true } : a
+          )
+        };
+      } else {
+        return state;
+      }
     default:
       return state;
   }

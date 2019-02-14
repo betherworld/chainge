@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
-import { FaSortUp } from "react-icons/fa";
+import { FaSortUp, FaCoins } from "react-icons/fa";
 import TimeAgo from "react-timeago";
 
 import Wrapper from "../components/Wrapper";
@@ -18,6 +18,8 @@ import { fetchAccount } from "../actions/account";
 import { fetchCampaign } from "../actions/campaign";
 
 const Project = styled(Box)`
+  margin: 0.5rem 0;
+
   h2 {
     margin: 0;
   }
@@ -61,6 +63,32 @@ const Warning = styled.div`
   padding: 1rem;
 
   margin-bottom: 1rem;
+`;
+
+const Tokens = styled.div`
+  background-color: ${colors.primary};
+  color: #fff;
+  border-radius: ${borders.radius};
+  position: relative;
+  padding: 0.25rem 0.5rem;
+
+  margin-bottom: 1rem;
+
+  display: inline-block;
+
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 1.5rem;
+
+  & > *:last-child {
+    margin-left: 0.5rem;
+  }
+`;
+const Title = styled.h1`
+  span {
+    margin-right: 1rem;
+  }
 `;
 
 /**
@@ -107,9 +135,14 @@ class Vote extends React.PureComponent {
         </Helmet>
         <Page>
           <Container>
-            Gatherers Token count: {voteTokens}
+            <Title>
+              <span>Community Projects Voting</span>
+              <Tokens>
+                {voteTokens} <FaCoins />
+              </Tokens>
+            </Title>
+
             <br />
-            {JSON.stringify(campaign)}
             {!votingEnabled && date && (
               <Warning>
                 <h2>Warning</h2>

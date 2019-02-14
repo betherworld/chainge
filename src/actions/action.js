@@ -68,7 +68,13 @@ export const fetchActions = () => dispatch => {
         new Array(length).fill().map((_e, i) => getActionByIndex(i))
       )
         .then(actions => {
-          dispatch(fetchActionsAction(null, false, actions.map(mapAction)));
+          dispatch(
+            fetchActionsAction(
+              null,
+              false,
+              actions.map(mapAction).filter(action => !action.done)
+            )
+          );
 
           return actions;
         })
@@ -77,5 +83,45 @@ export const fetchActions = () => dispatch => {
           return Promise.reject(error);
         });
     });
+  });
+};
+
+/**
+ * Submits an action
+ * @param {Error} error If an error occurs
+ * @param {boolean} isFetching Whether the action is currently being submitted
+ * @param {number} actionIndex The action's index
+ * @param {string} data The action data
+ * @returns {Promise} Then fetch promise
+ */
+const submitActionAction = (error, isFetching, actionIndex, data) => ({
+  type: "SUBMIT_ACTION",
+  error,
+  isFetching,
+  actionIndex,
+  data
+});
+
+/**
+ * Submits an action
+ * @param {number} actionIndex The index of the action
+ * @param {string} data The action data
+ * @returns {Promise} The fetch promise
+ */
+export const submitAction = (actionIndex, data) => dispatch => {
+  dispatch(submitActionAction(false, true, actionIndex, data));
+
+  return new Promise((resolve, reject) => {
+    resolve(dispatch(submitActionAction(false, false, actionIndex, data)));
+    /*campaignContract.submitAction(projectIndex, data, error => {
+      if (error) {
+        return reject(error);
+      }
+
+      resolve(dispatch(submitActionAction(false, false, actionIndex, data)));
+    });*/
+  }).catch(error => {
+    dispatch(submitActionAction(error, false, actionIndex, data));
+    return Promise.reject(error);
   });
 };

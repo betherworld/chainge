@@ -144,28 +144,17 @@ class Frontpage extends React.PureComponent {
                       </Box>
                       <Box width={[1, 1, 1 / 2, 1 / 2]}>Lorem ipsum dolor</Box>
                     </Flex>
-                    <h1>What are the Carpathians?</h1>
-                    <h1>About the project</h1>
-                    <h2>{campaign.title}</h2>
-                    <p>Description of the project: {campaign.description}</p>
-                    <Table>
-                      <thead>
-                        <tr />
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Score Goal</td>
-                          <td>{campaign.goalScore}</td>
-                        </tr>
-                        <tr>
-                          <td>Pot Distribution WWF / Community Ratio</td>
-                          <td>
-                            {campaign.ratioProject}% /{" "}
-                            {100 - campaign.ratioProject}%
-                          </td>
-                        </tr>
-                      </tbody>
-                    </Table>
+                    <h1>{campaign.title}</h1>
+                    <p>{campaign.description}</p>
+                    <p>
+                      Score Goal: <strong>{campaign.goalScore}</strong>
+                      <br />
+                      WWF / Citizens:{" "}
+                      <strong>
+                        {campaign.ratioProject}% / {100 - campaign.ratioProject}
+                        %
+                      </strong>
+                    </p>
 
                     <h1>How can I help?</h1>
                     <Map />
@@ -202,7 +191,6 @@ class Frontpage extends React.PureComponent {
                         </Warning>
                       )
                     )}
-
                     {lastTransaction && (
                       <LastTransaction>
                         <h2>Thank you for supporting us!</h2>

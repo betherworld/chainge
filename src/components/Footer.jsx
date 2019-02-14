@@ -54,7 +54,7 @@ class Footer extends React.PureComponent {
         <Container>
           <Flex wrap>
             <Box width={[1, 1, 1 / 3, 1 / 3]} pr={2}>
-              Powered by
+              <FooterTitle>Powered by</FooterTitle>
               <LogoRow>
                 <img height="50" width="auto" src={EthereumLogo} />
                 <img height="50" width="auto" src={SolidityLogo} />
@@ -63,7 +63,7 @@ class Footer extends React.PureComponent {
               </LogoRow>
             </Box>
             <Box width={[1, 1, 1 / 3, 1 / 3]} pr={2}>
-              Supported by
+              <FooterTitle>Supported by</FooterTitle>
               <Flex>
                 <Box width={[1 / 5, 1 / 5, 1 / 5, 1 / 5]} pr={2}>
                   <img width="50" height="auto" src={WwfLogo} />
