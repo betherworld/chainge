@@ -256,7 +256,7 @@ contract Campaign {
     Data[] dataPoints;
 
     function saveData(uint lat, uint long, uint temperature, uint humidityAir, bool humidityGround) external {
-        require(msg.sender == sensorAccount);
+        require(msg.sender == sensorAccount, "You're now allowed to send data!");
         dataPoints.push(Data(lat, long, temperature, humidityAir, humidityGround));
     }
 
