@@ -24,3 +24,5 @@ src/config.json
 
 #log files
 *.log
+
+scripts/config.json

@@ -2,6 +2,7 @@ const Web3 = require("web3");
 const Tx = require("ethereumjs-tx");
 
 const CONRACT_ABI = require("../src/contracts/Campaign.json");
+const { ADDRESS } = require("./config.json");
 
 const MY_ADDRESS = "0xd1749fE1026F6c4BA3EC2B22609479Ba19fe3ebD";
 const PRIVATE_KEY = Buffer.from(
@@ -18,7 +19,7 @@ const [
   humidityGround = false
 ] = process.argv.slice(2);
 
-const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+const web3 = new Web3(new Web3.providers.HttpProvider(ADDRESS));
 web3.eth.defaultAccount = MY_ADDRESS;
 const campaignContract = web3.eth.contract(CONRACT_ABI).at(CAMPAIGN_ADDRESS);
 
