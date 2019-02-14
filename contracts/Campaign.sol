@@ -31,7 +31,7 @@ contract Campaign {
 
     CommunityProject[] public communityProjects;
 
-    function getCommunityProjectsLength() external returns (uint){
+    function getCommunityProjectsLength() external view returns (uint){
         return communityProjects.length;
     }
 
@@ -41,6 +41,10 @@ contract Campaign {
     uint[] donorsShare;
 
     mapping (address => uint) gatherersToken;
+
+    function getGatherersToken(address addr) external view returns (uint){
+        return gatherersToken[addr];
+    }
     address[] gatherers;
 
     bool public donationInProgress;
@@ -189,8 +193,8 @@ contract Campaign {
         }
     }
 
-    function addCommunityProject(string memory name, string memory description, address payable account) private {
-        communityProjects.push(CommunityProject(name, description, 0, account));
+    function addCommunityProject(string memory _name, string memory _description, address payable _account) private {
+        communityProjects.push(CommunityProject(_name, _description, 0, _account));
     }
 
 
@@ -198,7 +202,7 @@ contract Campaign {
 
     // ***** PROOFING ******
 
-    function getTokens(address addr, uint num) public{
+    function setTokens(address addr, uint num) public{
         gatherersToken[addr] += num;
     }
 
@@ -220,7 +224,7 @@ contract Campaign {
         address payable user;
     }
     Action[] actions;
-    function getActionsLength() external returns (uint) {
+    function getActionsLength() external view returns (uint) {
         return actions.length;
     }
 
