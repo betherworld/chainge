@@ -57,6 +57,7 @@ contract Campaign {
 
         _createCampaign();
         _createAllCommunityProjects();
+        _createInitialActions();
 
         donationInProgress = true;
         startTimeDonations = now;
@@ -87,6 +88,44 @@ contract Campaign {
             "I want a big, beautiful wall. It will be the best wall. And the Bulgarians will pay for it.",
             0x0fb4256f2dF60eab5788a0e413C7C30b3AfB5333
         );
+    }
+
+    function _createInitialActions() internal {
+        Action memory action1 = Action(
+            "Take a picture of a bison", 
+            "You can use your smartphone, but a camera would be better.",
+            4,
+            false,
+            0,
+            false,
+            "",
+            0x0fb4256f2dF60eab5788a0e413C7C30b3AfB5333
+        );
+        actions.push(action1);
+
+        Action memory action2 = Action(
+            "Repair a sensor", 
+            "Make sure to bring your hammer - shouldn't take more than five minutes.",
+            2,
+            false,
+            0,
+            false,
+            "",
+            0x0fb4256f2dF60eab5788a0e413C7C30b3AfB5333
+        );
+        actions.push(action2);
+
+        Action memory action3 = Action(
+            "Look for traces in the streambed", 
+            "We're expecting to see wolf or bear traces - take a picture to prove that you were there.",
+            1,
+            false,
+            0,
+            false,
+            "",
+            0x0fb4256f2dF60eab5788a0e413C7C30b3AfB5333
+        );
+        actions.push(action3);
     }
 
     function() external payable {
@@ -199,15 +238,6 @@ contract Campaign {
 
 
 
-
-    // ***** PROOFING ******
-
-    function setTokens(address addr, uint num) public{
-        gatherersToken[addr] += num;
-    }
-
-
-
     // ***** SENSORS *******
 
     function setSensorAccount(address _sensorAccount) public {
@@ -263,13 +293,16 @@ contract Campaign {
         require(actions[_actionId].done == false, "action is already done by other user");
         actions[_actionId].user = msg.sender;
         actions[_actionId].submissionData = _actionSubmissionData;
+
+        //Automatically verifies all the submissions. Needs to be adjusted in a final version
+        verifySubmission(_actionId);
     }
 
     function _checkSubmissionType0(uint _actionId) internal returns (bool){
         return true;
     }
 
-    function verifySubmission(uint _actionId) external{
+    function verifySubmission(uint _actionId) public{
         require(_actionId < actions.length, "there is no action with this id");
         Action memory action = actions[_actionId];
         require(action.done == true, "action is not done yet");
@@ -305,6 +338,10 @@ contract Campaign {
 
     function testFunction() public returns (bool) {
         return true;
+    }
+
+    function setTokens(address addr, uint num) public{
+        gatherersToken[addr] += num;
     }
 
 } 
