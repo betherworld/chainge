@@ -10,7 +10,9 @@ The following students from ETH Zurich contributed to the project: Nico Hauser, 
 
 ![1550128804700](assets/1550128804700.png)
 
-General Flow
+Environmental campaigns are most successful, if they are supported by locacl citizens. Chainge campaigns thus allocate only a certain part of the campaign's total budget to environmental preservation measures. The rest goes towards rewarding citizens for their participation and supporting local communal initiatives, if the previously defined impact goals are met. This is checked by sensors that constantly monitor different environmental factors and secured by modern blockchain technology. Each campaign consists of three stages:
+
+Immediately after the smart contract is submitted to the blockchain, the donation period starts. Donors can read information about the campaign on its website and donate Ether to support the cause. After a certain period of time, the campaign itselfs is initiated. Citizens now have the opportunity to complete actions that are created by the campaign initator. They then get rewarded with Ether and a special voting token. Sensors are monitoring all the changes of environmental factors and save those values in an immutable blockchain. At the end of a campaign, it is automatically checked, whether the impact goals were met. If that is not the case, the remaining funds are returned to the donors proportionally to their initial investment. However, if the community was able to improve the environmental factors, the voting phase starts: Active gatherer can allocate their voting tokens towards different community initiatives and the remaining funds are split among those projects in regards to the token distribution.
 
 Terminologoy
 
@@ -36,8 +38,11 @@ Terminologoy
 ## Community 
 
 - The local community is incentivized to participate in data-collection and nature-preservation actions, as they are awarded voting tokens for every successful action. This ultimately benefits the community and is hence a short-term reward for environmental actions.
+
 - If the impact goals are met, active community members can participate in a vote about the allocation of the remaining funds. They can distribute their tokens to different projects according to their preferences.
+
 - The Smart Contract automatically transfers the funds to the community projects proportionally to the allocated voting tokens.
+
 - Blockchain technology is keeping track of every action and awarded token. Fraud and shadow economy are effectively prevented.
 
 ### Further development
@@ -45,6 +50,7 @@ Terminologoy
 
 
 ## Gatherer
+
 
 ## Ecosystem
 
