@@ -31,6 +31,10 @@ contract Campaign {
 
     CommunityProject[] public communityProjects;
 
+    function getCommunityProjectsLength() external returns (uint){
+        return communityProjects.length;
+    }
+
     mapping (address => uint) donorsAmount;
     mapping (uint => address) idDonor;
     address[] donors;
@@ -216,6 +220,9 @@ contract Campaign {
         address payable user;
     }
     Action[] actions;
+    function getActionsLength() external returns (uint) {
+        return actions.length;
+    }
 
     function createAction(string memory _actionTitle, string memory _actionDescription, uint _actionReward, uint _actionProovingType) public{
         require(msg.sender == owner, "only campaign owner is allowed to create actions");
