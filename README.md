@@ -37,23 +37,33 @@ Terminologoy
 
 ## Community 
 
-- The local community is incentivized to participate in data-collection and nature-preservation actions, as they are awarded voting tokens for every successful action. This ultimately benefits the community and is hence a short-term reward for environmental actions.
+- If the impact goals are met, active community members can participate in a vote about the allocation of the remaining funds. They can distribute their tokens to different projects according to their preferences. Tokens can not be traded to prevent fraudulent use.
 
-- If the impact goals are met, active community members can participate in a vote about the allocation of the remaining funds. They can distribute their tokens to different projects according to their preferences.
+- The smart contract automatically transfers the funds to the community projects proportionally to the allocated voting tokens. Neither the campaign initator nor the donors can interfere in this process. 
 
-- The Smart Contract automatically transfers the funds to the community projects proportionally to the allocated voting tokens.
-
-- Blockchain technology is keeping track of every action and awarded token. Fraud and shadow economy are effectively prevented.
+- Blockchain technology is keeping track of every action and awarded token. Fraud and hacks are effectively prevented.
 
 ### Further development
 
-
+- Community projects can currently only be initiated by the contract owner. In a future version, it might also be possible for community members to propose new projects, while the campaign is running. To prevent abuse, it would be necessary to verify those projects - either centrally by the campaign initiator or decentrally by the community members and/or the campaign donors.
 
 ## Gatherer
 
+- The project initiator is able to define positive actions that the citizens can take to support the campaign. Each action automatically rewards a predefined amount of voting tokens and Ether to the citizen after sucessful completion.
+
+### Further development
+
+- Data submitted by gatherers is not processed or stored, as we are only working with test data.
+
+- There is currently no verification system in place to check the submitted actions. This check could be performed either by the campaign initiator or (preferably) by other community members. This would demand a reputation score system: The trustworthiness of citizens decreases, if they consciously make false claims or if they verify claims that turn out to be false.
+
+- Certain actions can be verified automatically by using technologies like image recognition and statistical analysis.
+
+- The reward for certain actions could be set by an auction system, where citizenz make bids for actions. This would lead to rewards that are more appropriate than if they are set by the campaign initiators.
 
 ## Ecosystem
 
+- Sensors are sending data in regular intervals to the blockchain, where they are stored decentrally. The data is immutable and manipulations such that the impact goals are purposely not achieved are therefore not possible. 
 
 # Technology
 
