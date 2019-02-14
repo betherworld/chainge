@@ -279,7 +279,9 @@ contract Campaign {
         string submissionData;
         address payable user;
     }
-    Action[] actions;
+    
+    Action[] public actions;
+
     function getActionsLength() external view returns (uint) {
         return actions.length;
     }
