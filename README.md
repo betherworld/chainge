@@ -1,8 +1,8 @@
-This is a project submission for the 2019 BETH "Blockchain School for Sustainability" competition. It's built for the "Wild AI" challenge by WWF.
+Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards are limited and because it is hard to measure the impact. Using blockchain technology, we propose a system that incentives citizens to not only preserve the environment they live in, but to actively participate as data gatherers and support individual campaigns. Donations are processed in a complete decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed, in case their donations do not have the desired impact.
 
-Introduction
-hackathon challenge wwf
-contributors
+This is a project submission for the 2019 BETH "Blockchain School for Sustainability" hackathon. It was built for the "Wild AI" challenge by WWF and uses the Ethereum network. The current version is a functional (but admittedly hacky) prototype that runs on the XXX testnet.
+
+The following students from ETH Zurich contributed to the project: Nico Hauser, David Rode, David Schmid, Ben Spöttling, Patrick Züst.
 
 [TOC]
 
