@@ -1,4 +1,7 @@
-Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards are limited and because it is hard to measure the impact. Using blockchain technology, we propose a system that incentives citizens to not only preserve the environment they live in, but to actively participate as data gatherers and support individual campaigns. Donations are processed in a complete decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed, in case their donations do not have the desired impact.
+# Chainge - An Incentive System to Save the Planet
+### Ethereum-powered Ðapp that allows for impactful donations with a money back guarantee, decentralized data storage and active participation of citizens
+
+Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards for locals acting ecologically are limited and because measuring the impact of such campaigns is hard. Using blockchain technology, we propose a system that offers citizens incentives to not only preserve the environment they live in, but to actively participate in the perservation. Donations are processed in a decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed in case their donations do not have the desired impact.
 
 This is a project submission for the 2019 BETH "Blockchain School for Sustainability" hackathon. It was built for the "Wild AI" challenge by WWF and uses the Ethereum network. The current version is a functional (but admittedly hacky) prototype that runs on the XXX testnet.
 
@@ -6,31 +9,33 @@ The following students from ETH Zurich contributed to the project: Nico Hauser, 
 
 # Overview
 
+Environmental campaigns are most successful, if they are supported by local citizens. Chainge campaigns thus allocate only a certain part of the campaign's total budget to environmental preservation measures. Remaining funds go towards rewarding citizens for their participation and supporting local communal initiatives, if the previously defined impact goals are met. This is secured by modern blockchain technology and checked by sensors that constantly monitor different environmental factors. Each campaign consists of three stages:
+
+Immediately after the smart contract is submitted to the blockchain, the donation period starts. Donors can read information about the campaign online and donate Ether to support the cause. After a certain period of time, the campaign is initiated. Citizens now have the opportunity to complete actions that are created by the campaign initiator. They then get rewarded with Ether and special voting tokens. Sensors are monitoring changes of environmental factors and save those values in an immutable blockchain. At the end of a campaign, it is automatically checked whether the impact goals were met. If that is not the case, the remaining funds are returned to the donors proportionally to their initial investment. However, if the community was able to achieve the goals of the campaign, the voting phase starts: Active gatherers can allocate their voting tokens towards different community initiatives and the remaining funds are split among those projects according to the token distribution.
+
+Terminology
+
+# Features
+
+The features of Chainge are listed in regards to the nodes of the WWF diagram shown below. As this project 
+
 ![1550128728832](assets/1550128728832.png)
 
 ![1550128804700](assets/1550128804700.png)
-
-Environmental campaigns are most successful, if they are supported by local citizens. Chainge campaigns thus allocate only a certain part of the campaign's total budget to environmental preservation measures. The rest goes towards rewarding citizens for their participation and supporting local communal initiatives, if the previously defined impact goals are met. This is checked by sensors that constantly monitor different environmental factors and secured by modern blockchain technology. Each campaign consists of three stages:
-
-Immediately after the smart contract is submitted to the blockchain, the donation period starts. Donors can read information about the campaign on its website and donate Ether to support the cause. After a certain period of time, the campaign is initiated. Citizens now have the opportunity to complete actions that are created by the campaign initiator. They then get rewarded with Ether and a special voting token. Sensors are monitoring all the changes of environmental factors and save those values in an immutable blockchain. At the end of a campaign, it is automatically checked, whether the impact goals were met. If that is not the case, the remaining funds are returned to the donors proportionally to their initial investment. However, if the community was able to improve the environmental factors, the voting phase starts: Active gatherer can allocate their voting tokens towards different community initiatives and the remaining funds are split among those projects in regards to the token distribution.
-
-Terminologoy
-
-# Features
 
 ## Donors
 
 - Information about a campaign and specific impact goals are displayed on the website. Those details are stored in a blockchain and it is hence impossible to change them retrospectively.
 
-- Donors can make an Ether donation to the Campaign, if they are convinced of the specific parameters and impact goals. The funds are then stored in a decentralized smart contract and can therefore only be used for their intended purpose. This can easily be verified by donors as well as regulators - there is no need to trust a middleman.
+- Donors can make an Ether donation to the campaign, if they are convinced of the specific parameters and impact goals. The funds are then stored in a decentralized smart contract and can therefore only be used for their intended purpose. This can easily be verified by donors as well as regulators - there is no need to trust a middleman.
 
 - A previously defined split of the donations is automatically sent to the initiator of the campaign. It is however not possible to claim any other donations.
 
-- In case the campaign goals are not met, the remaining funds are reimbursed automatically to the donors. This is a reassurance for them, but also an incentive for the citizens and the project initiator.
+- In case the campaign goals are not met, the remaining funds are reimbursed automatically to the donors. This is a reassurance for them but also an incentive for the citizens and the project initiator to meet said goals.
 
 ### Further development
 
-- Donors could be allowed to explicitly state, how much of their money should go towards the environmental campaign and how much towards the community project. 
+- Donors could be allowed to explicitly state how much of their money should go towards the environmental campaign and how much towards the community project. 
 
 - With the data gathered during a campaign, it is possible to automatically generate regular updates for donors.
   
@@ -59,16 +64,33 @@ Terminologoy
 
 - Certain actions can be verified automatically by using technologies like image recognition and statistical analysis.
 
-- The reward for certain actions could be set by an auction system, where citizens make bids for actions. This would lead to rewards that are more appropriate than if they are set by the campaign initiators.
+- The reward for certain actions could be set by an auction system, where citizens make bids for actions. This would lead to rewards that are more adequate than those predetermined by campaign initiators.
 
 ## Ecosystem
 
-- Sensors are sending data in regular intervals to the blockchain, where they are stored decentralized. The data is immutable and manipulations such that the impact goals are purposely not achieved are therefore not possible. 
+- Sensors are sending data in regular intervals to the blockchain, where they are stored decentralized. The data is immutable and manipulations are therefore not possible. 
+
+### Further development
+
+- Sensor data is currently stored on chain which leads to high transaction costs. It could alternatively be saved on IPFS or in a database that is only partially decentralized.
 
 # Technology
+##Hardware
 
+Sensors play a vital role during a campaign. They independently gather data that allows initiators and donors to track the progress of the campaign. This will ultimately determine its success. The accuracy of sensors and the secure storage of data are therefore crucial.
+
+The Chainge prototype currently contains GPS-, temperature- and humidity-sensors for both air and soil. It can easily be equipped with additional sensors and thus allows for a precise monitoring of the local biosystem. 
+
+Cost is a major factor for public foundations and the individual components of the prototype are therefore regular off-the-shelf products. The plastic casing was manufactured by additive manufacturing at a low price. The heart of the prototype is a Raspberry Pi single-board computer; the sensors are connected via cable connections and a breadboard. It is possible for local communities to build the entire device at a cost of less than 70$. If they were manufactured in mass production, the price would of course be considerably lower.
+
+Sensor input is processed by a Python program and then sent to the blockchain using Node.js. The current prototype has to be plugged in to the power system at all times and connects to the internet via WIFI. However, the electricity of future version could be supplied by batteries and data might be transferred over a LoRaWAN network. This would ensure high mobility and self-reliance without compromising connectivity. The device could additionally be equipped with air quality sensors, cameras, microphones and smoke detectors.
+
+The prototype has QR-codes placed at the inside and the outside of its case. When checking sensors for functionality or replacing batteries, locals could potentially scan these codes to prove their action and thus obtain a compensation.
+
+## Software
+
+The smart contract was written in Solidity and runs on the Ethereum network. The responsive web interface is built on React and uses the web3.js API to connect to the smart contract. 
 
 # Setup
 
 
-# Thoughts on Scalability and Security
