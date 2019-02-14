@@ -73,7 +73,7 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 - Sensor data is currently stored on chain which leads to high transaction costs. It could alternatively be saved on IPFS or in a database that is only partially decentralized.
 
 # Technology
-##Hardware
+## Hardware
 
 ![prototype of the Chainge sensor module](assets/sensor_prototype.jpg)
 
