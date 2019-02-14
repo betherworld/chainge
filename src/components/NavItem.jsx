@@ -25,11 +25,6 @@ const NavItem = styled.div`
     ${({ seperator }) =>
       seperator ? `border-right: ${colors.primaryContrast} 1px solid;` : ""};
   }
-
-  img {
-    height: 100%;
-    width: auto;
-  }
 `;
 
 NavItem.propTypes = {

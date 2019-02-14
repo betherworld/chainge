@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { action as toggleBurgerMenuAction } from "redux-burger-menu";
 import { MdMenu as MenuIcon } from "react-icons/md";
 
+import ChaingeLogo from "../../img/logo.svg";
 import { colors } from "../utilities/style";
 import { getBurgerMenuOpen } from "../reducers";
 import Link from "../components/Link";
@@ -25,6 +26,12 @@ const HeaderWrapper = styled.div`
 
   background-color: ${colors.background};
   color: ${colors.primary};
+`;
+
+const Logo = styled.img`
+  height: 50px;
+  width: auto;
+  display: inline-block;
 `;
 
 /**
@@ -51,7 +58,11 @@ class Header extends React.PureComponent {
         <Navbar>
           <Container>
             <Flexbar>
-              <NavItem>Chainge</NavItem>
+              <NavItem>
+                <Flexbar>
+                  <Logo src={ChaingeLogo} /> CHAINGE
+                </Flexbar>
+              </NavItem>
               <Push left>
                 <MediaQuery md up>
                   <NavItem>

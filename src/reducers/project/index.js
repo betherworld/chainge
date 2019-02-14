@@ -11,9 +11,14 @@ const projectReducer = (
     projects: [
       {
         title: "Green houses for everyone",
-        description: "Green is love, green is life <3"
+        description: "Green is love, green is life <3",
+        voteCount: 27
       },
-      { title: "Free beer fridays", description: "We want beer! We want beer!" }
+      {
+        title: "Free beer fridays",
+        description: "We want beer! We want beer!",
+        voteCount: 239
+      }
     ]
   },
   action

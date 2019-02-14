@@ -7,18 +7,22 @@ import { Flex, Box } from "grid-styled";
 import Wrapper from "../components/Wrapper";
 import Page from "../components/Page";
 import Container from "../components/Container";
-import Placeholder from "../components/Placeholder";
 import Map from "../components/Map";
 import { fetchAccount } from "../actions/account";
 import { getAccount } from "../reducers";
 import { borders, colors } from "../utilities/style";
 import web3 from "../web3";
 
+const FrontWrapper = styled.div`
+  h1 {
+    text-align: center;
+  }
+`;
+
 const Description = styled.div`
   display: block;
   margin: 0 auto;
   color: #999;
-
   text-align: center;
 `;
 
@@ -27,7 +31,7 @@ const StyledInput = styled.input`
   padding: 0.25rem 0.5rem;
   margin: 1rem auto;
   display: block;
-  border-radius: ${borders.radius};
+  border-radius: ${borders.inputRadius};
   border: ${colors.primary} 2px solid;
   font-size: 2rem;
 `;
@@ -41,7 +45,7 @@ const StyledButton = styled.button`
   background-color: ${colors.primary};
   color: #fff;
   padding: 0.5rem 0.5rem;
-  border-radius: ${borders.radius};
+  border-radius: ${borders.inputRadius};
   border: none;
   cursor: pointer;
 
@@ -97,28 +101,31 @@ class Frontpage extends React.PureComponent {
         <Wrapper slider header footer>
           <Page>
             <Container>
-              <Map />
-              <StyledInput
-                placeholder=""
-                value={money}
-                onChange={event =>
-                  this.setState({ money: event.currentTarget.value })
-                }
-              />
-              <Description>
-                Enter the amount of ether with which you want to support this
-                project.
-              </Description>
-              <StyledButton onClick={() => this.fund()}>
-                Send Money
-              </StyledButton>
+              <FrontWrapper>
+                <h1>What is "Chainge"?</h1>
+                <h1>What are the Carpathians?</h1>
+                <h1>How can I help?</h1>
+                <Map />
+                <StyledInput
+                  placeholder=""
+                  value={money}
+                  onChange={event =>
+                    this.setState({ money: event.currentTarget.value })
+                  }
+                />
+                <Description>
+                  Enter the amount of ether with which you want to support this
+                  project.
+                </Description>
+                <StyledButton onClick={() => this.fund()}>Confirm</StyledButton>
 
-              {lastTransaction && (
-                <LastTransaction>
-                  <h2>Thank you for supporting us!</h2>
-                  You just supported this campaign with {lastTransaction} ETH.
-                </LastTransaction>
-              )}
+                {lastTransaction && (
+                  <LastTransaction>
+                    <h2>Thank you for supporting us!</h2>
+                    You just supported this campaign with {lastTransaction} ETH.
+                  </LastTransaction>
+                )}
+              </FrontWrapper>
             </Container>
           </Page>
         </Wrapper>

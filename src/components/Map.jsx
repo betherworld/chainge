@@ -69,7 +69,7 @@ class Map extends React.PureComponent {
             height: "auto"
           }}
         >
-          <ZoomableGroup center={[25, 46]} zoom={this.state.zoom}>
+          <ZoomableGroup center={[29, 51.25]} zoom={this.state.zoom}>
             <Geographies geography="/maps/romania.json">
               {(geographies, projection) =>
                 geographies.map((geography, i) => (

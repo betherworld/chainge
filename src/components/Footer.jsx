@@ -5,11 +5,15 @@ import Container from "components/Container";
 import { Flex, Box } from "grid-styled";
 import {
   IoLogoTwitter as TwitterIcon,
-  IoLogoGithub as GithubIcon,
-  IoLogoInstagram as InstagramIcon
+  IoLogoGithub as GithubIcon
 } from "react-icons/io";
-import { FaComment as ContactIcon } from "react-icons/fa";
 
+import ChaingeLogo from "../../img/logo.svg";
+import NodeJsLogo from "../../img/logos/nodejs.svg";
+import ReactLogo from "../../img/logos/react.svg";
+import EthereumLogo from "../../img/logos/ethereum.svg";
+import SolidityLogo from "../../img/logos/solidity.svg";
+import WwfLogo from "../../img/logos/wwf.svg";
 import { colors, media } from "../utilities/style";
 
 const FooterWrapper = styled.footer`
@@ -17,29 +21,16 @@ const FooterWrapper = styled.footer`
   border-top: ${colors.backgroundContrast} 5px solid;
 
   color: #fff;
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0;
   margin-top: 2rem;
 `;
 
-const FooterList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
+const LogoRow = styled.div`
+  display: flex;
+  align-content: center;
 
-  li {
-    display: flex;
-    align-items: center;
-    margin: 0.25rem 0;
-    cursor: pointer;
-
-    a {
-      text-decoration: none;
-      color: #fff;
-    }
-
-    svg {
-      margin-right: 0.5rem;
-    }
+  & > * {
+    margin-right: 0.5rem;
   }
 `;
 
@@ -52,8 +43,6 @@ const FooterTitle = styled.h4`
   margin: 0.5rem 0 1rem 0;
 `;
 
-const emojis = ["🥳", "😋", "🤔", "😜"];
-
 /**
  * The site footer
  * @returns {Component} The component
@@ -65,40 +54,21 @@ class Footer extends React.PureComponent {
         <Container>
           <Flex wrap>
             <Box width={[1, 1, 1 / 3, 1 / 3]} pr={2}>
-              <FooterTitle>Links</FooterTitle>
-              <FooterList>
-                <li>
-                  <a href="https://twitter.com/WWF/" target="_blank">
-                    <TwitterIcon />
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/Tyratox/" target="_blank">
-                    <GithubIcon />
-                    GitHub
-                  </a>
-                </li>
-              </FooterList>
+              Powered by
+              <LogoRow>
+                <img height="50" width="auto" src={EthereumLogo} />
+                <img height="50" width="auto" src={SolidityLogo} />
+                <img height="50" width="auto" src={ReactLogo} />
+                <img height="50" width="auto" src={NodeJsLogo} />
+              </LogoRow>
             </Box>
             <Box width={[1, 1, 1 / 3, 1 / 3]} pr={2}>
-              <FooterTitle>Contact</FooterTitle>
-              <FooterList>
-                <li
-                  onClick={() => {
-                    window.location =
-                      "mailto:" +
-                      "em"
-                        .split("")
-                        .reverse()
-                        .join("") +
-                      "@tyratox.ch";
-                  }}
-                >
-                  <ContactIcon />
-                  Any questions?
-                </li>
-              </FooterList>
+              Supported by
+              <Flex>
+                <Box width={[1 / 5, 1 / 5, 1 / 5, 1 / 5]} pr={2}>
+                  <img width="50" height="auto" src={WwfLogo} />
+                </Box>
+              </Flex>
             </Box>
             <Box width={[1, 1, 1 / 3, 1 / 3]}>
               <FooterTitle>About</FooterTitle>
