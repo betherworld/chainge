@@ -8,7 +8,7 @@ const PRIVATE_KEY = Buffer.from(
   "6aad02f1da6c1438c6a7d0fe79fe70ab514db0cfa104bc7073f90c1210366909",
   "hex"
 );
-const CAMPAIGN_ADDRESS = "0xAAF017caF5A621D0f0deBE1dc9C0E188d3400D3d";
+const CAMPAIGN_ADDRESS = "0x50294033ccd08b076c7a3e61b44c7fd4af6269da";
 
 const [
   lat = 0,
