@@ -1,5 +1,4 @@
-import web3 from "../web3";
-import { getAccount } from "../reducers";
+import { campaignContract } from "../web3/contracts/CampaignContract";
 
 /**
  * Maps a project
@@ -9,7 +8,7 @@ import { getAccount } from "../reducers";
 const mapProject = project => ({
   title: project[0],
   description: project[1],
-  voteCount: project[2],
+  voteCount: parseInt(project[2]),
   account: project[3]
 });
 
@@ -31,29 +30,47 @@ const fetchProjectsAction = (error, isFetching, projects) => ({
  * Fetches the current eth account
  * @returns {void}
  */
-export const fetchProjects = () => (dispatch, getState) => {
+export const fetchProjects = () => dispatch => {
   dispatch(fetchProjectsAction(false, true));
 
-  const account = getAccount(getState());
+  return new Promise((resolve, reject) => {
+    campaignContract.getCommunityProjectsLength.call((error, length) => {
+      if (error) {
+        reject(error);
+      }
 
-  const contract = new web3.eth.Contract(
-    "JSON_CAMPAIGN_CONTRACT",
-    "CAMPAIGN_CONTRACT_ADDRESS",
-    {
-      from: account
-    }
-  );
+      length = parseInt(length);
 
-  return contract.methods.communityProjects
-    .call()
-    .then(communityProjects => {
-      dispatch(
-        fetchProjectsAction(null, false, communityProjects.map(mapProject))
-      );
-      return communityProjects;
-    })
-    .catch(error => {
-      dispatch(fetchProjectsAction(error, false));
-      return Promise.reject(error);
+      /**
+       * Fetches a project
+       * @param {number} id The project id
+       * @returns {Promise} the fetch promise
+       */
+      const getCommunityProjectById = id => {
+        return new Promise((resolve, reject) => {
+          campaignContract.communityProjects(id, (error, result) => {
+            if (error) {
+              return reject(error);
+            }
+
+            return resolve(result);
+          });
+        });
+      };
+
+      return Promise.all(
+        new Array(length).fill().map((_e, i) => getCommunityProjectById(i))
+      )
+        .then(communityProjects => {
+          dispatch(
+            fetchProjectsAction(null, false, communityProjects.map(mapProject))
+          );
+          return communityProjects;
+        })
+        .catch(error => {
+          dispatch(fetchProjectsAction(error, false));
+          return Promise.reject(error);
+        });
     });
+  });
 };

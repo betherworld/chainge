@@ -13,6 +13,7 @@ import { fetchProjects } from "../actions/project";
 import { colors, borders } from "../utilities/style";
 import Button from "../components/Button";
 import NegativeButton from "../components/NegativeButton";
+import { fetchAccount } from "../actions/account";
 
 const Project = styled(Box)`
   h2 {
@@ -22,7 +23,7 @@ const Project = styled(Box)`
   & > div {
     position: relative;
     padding: 0.5rem;
-    padding-right: 1.5rem;
+    padding-right: 3rem;
 
     color: #fff;
     background-color: ${colors.primary};
@@ -57,7 +58,8 @@ const Votes = styled.div`
  */
 class Vote extends React.PureComponent {
   componentDidMount = () => {
-    //this.props.fetchProjects();
+    this.props.fetchAccount();
+    this.props.fetchProjects();
   };
 
   render = () => {
@@ -78,9 +80,6 @@ class Vote extends React.PureComponent {
                     <p>{project.description}</p>
                     <Votes>
                       <NegativeButton
-                        state={
-                          project.title.startsWith("G") ? "disabled" : undefined
-                        }
                         onClick={() =>
                           new Promise((resolve, reject) => {
                             setTimeout(() => resolve(), 2000);
@@ -90,7 +89,7 @@ class Vote extends React.PureComponent {
                         <FaSortUp />
                       </NegativeButton>
                       <br />
-                      30
+                      {project.voteCount}
                     </Votes>
                   </div>
                 </Project>
@@ -114,6 +113,13 @@ const mapDispatchToProps = dispatch => ({
    */
   fetchProjects() {
     return dispatch(fetchProjects());
+  },
+  /**
+   * Fetches the account
+   * @returns {Promise} The fetch promise
+   */
+  fetchAccount() {
+    return dispatch(fetchAccount());
   }
 });
 

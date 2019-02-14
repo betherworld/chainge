@@ -14,6 +14,10 @@ import project, * as fromProject from "./project";
 export const getBurgerMenuOpen = state => state.burgerMenu.isOpen;
 
 export const getAccount = wrap(fromAccount.getAccount, state => state.account);
+export const getVoteTokens = wrap(
+  fromAccount.getVoteTokens,
+  state => state.account
+);
 export const isFetchingAccount = wrap(
   fromAccount.isFetchingAccount,
   state => state.account

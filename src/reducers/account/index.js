@@ -5,7 +5,7 @@
  * @returns {Object} The new state
  */
 const accountReducer = (
-  state = { isFetching: false, error: false, account: "" },
+  state = { isFetching: false, error: false, account: "", voteTokens: 0 },
   action
 ) => {
   switch (action.type) {
@@ -14,7 +14,11 @@ const accountReducer = (
         isFetching: action.isFetching,
         error: action.error,
         account:
-          !action.error && !action.isFetching ? action.account : action.account
+          !action.error && !action.isFetching ? action.account : action.account,
+        voteTokens:
+          !action.error && !action.isFetching
+            ? action.voteTokens
+            : action.voteTokens
       };
     default:
       return state;
@@ -29,6 +33,13 @@ export default accountReducer;
  * @returns {Object} The current account
  */
 export const getAccount = state => state.account;
+
+/**
+ * Gets the amount of vote tokens
+ * @param {Object} state The redux state
+ * @returns {Object} The current amount of vote tokens
+ */
+export const getVoteTokens = state => state.voteTokens;
 
 /**
  * Checks whether we are currently fetching
