@@ -23,7 +23,7 @@ require("isomorphic-fetch");
 
 //Load state from local storage and create history object
 const persistedState = loadState();
-const history = createHistory();
+const history = createHistory({ basename: "/chainge/dist/" });
 
 //and the redux store
 const store = createStore(
