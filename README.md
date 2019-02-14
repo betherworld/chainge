@@ -1,5 +1,7 @@
 # Chainge - An Incentive System to Save the Planet
-### Ethereum-powered Ðapp that allows for impactful donations with a money back guarantee, decentralized data storage and active participation of citizens
+### Ethereum-powered Ðapp that allows for impactful donations with a money back guarantee, decentralized storage of sensor data and active citizen participation
+
+*Disclaimer: This is a hackathon project that was built over the course of two days by students of ETH Zurich. It is by no means perfect. Don’t use it in a real setting, but feel free to be inspired for your own projects.*
 
 Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards for locals acting ecologically are limited and because measuring the impact of such campaigns is hard. Using blockchain technology, we propose a system that offers citizens incentives to not only preserve the environment they live in, but to actively participate in the perservation. Donations are processed in a decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed in case their donations do not have the desired impact.
 
@@ -13,15 +15,11 @@ Environmental campaigns are most successful, if they are supported by local citi
 
 Immediately after the smart contract is submitted to the blockchain, the donation period starts. Donors can read information about the campaign online and donate Ether to support the cause. After a certain period of time, the campaign is initiated. Citizens now have the opportunity to complete actions that are created by the campaign initiator. They then get rewarded with Ether and special voting tokens. Sensors are monitoring changes of environmental factors and save those values in an immutable blockchain. At the end of a campaign, it is automatically checked whether the impact goals were met. If that is not the case, the remaining funds are returned to the donors proportionally to their initial investment. However, if the community was able to achieve the goals of the campaign, the voting phase starts: Active gatherers can allocate their voting tokens towards different community initiatives and the remaining funds are split among those projects according to the token distribution.
 
-Terminology
-
 # Features
 
-The features of Chainge are listed in regards to the nodes of the WWF diagram shown below. As this project 
+The features of Chainge are presented in regards to the nodes of the WWF diagram shown below. As this project is only a prototype of a much bigger vision, some ideas for further improvements are listed, too. 
 
-![1550128728832](assets/1550128728832.png)
-
-![1550128804700](assets/1550128804700.png)
+![1550128728832](assets/1550128728832.png) ![1550128804700](assets/1550128804700.png)
 
 ## Donors
 
@@ -50,7 +48,7 @@ The features of Chainge are listed in regards to the nodes of the WWF diagram sh
 
 ### Further development
 
-- Community projects can currently only be initiated by the contract owner. In a future version, it might also be possible for community members to propose new projects, while the campaign is running. To prevent abuse, it would be necessary to verify those projects - either centrally by the campaign initiator or alternatively by the community members and/or the campaign donors.
+- Community projects can currently only be initiated by the contract owner. In a future version, it might be possible for community members to propose new projects, while the campaign is running. To prevent abuse, it would be necessary to verify these projects - either centrally by the campaign initiator or alternatively by the community members and/or the campaign donors.
 
 ## Gatherer
 
@@ -77,6 +75,8 @@ The features of Chainge are listed in regards to the nodes of the WWF diagram sh
 # Technology
 ##Hardware
 
+![prototype of the Chainge sensor module](assets/sensor_prototype.jpg)
+
 Sensors play a vital role during a campaign. They independently gather data that allows initiators and donors to track the progress of the campaign. This will ultimately determine its success. The accuracy of sensors and the secure storage of data are therefore crucial.
 
 The Chainge prototype currently contains GPS-, temperature- and humidity-sensors for both air and soil. It can easily be equipped with additional sensors and thus allows for a precise monitoring of the local biosystem. 
@@ -92,5 +92,3 @@ The prototype has QR-codes placed at the inside and the outside of its case. Whe
 The smart contract was written in Solidity and runs on the Ethereum network. The responsive web interface is built on React and uses the web3.js API to connect to the smart contract. 
 
 # Setup
-
-
