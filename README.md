@@ -35,10 +35,10 @@ Terminologoy
 
 ## Community 
 
-- The local community is incentivized to participate in data-collection and nature-preservation actions by awarding voting tokens for every successful action.
+- The local community is incentivized to participate in data-collection and nature-preservation actions, as they are awarded voting tokens for every successful action. This ultimately benefits the community and is hence a short-term reward for environmental actions.
+- If the impact goals are met, active community members can participate in a vote about the allocation of the remaining funds. They can distribute their tokens to different projects according to their preferences.
+- The Smart Contract automatically transfers the funds to the community projects proportionally to the allocated voting tokens.
 - Blockchain technology is keeping track of every action and awarded token. Fraud and shadow economy are effectively prevented.
-- With an easy to use user interface, active community members can influence the wellbeing of their society by voting for different community projects.
-- The Smart Contract automatically transfers the funds to the community projects proportionally to their voting count.
 
 ### Further development
 
