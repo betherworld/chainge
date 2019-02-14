@@ -249,12 +249,13 @@ contract Campaign {
         uint lat;
         uint long;
         uint temperature;
-        bool humidity;
+        uint humidityAir;
+        bool humidityGround;
     }
 
     Data[] dataPoints;
 
-    function saveData(uint lat, uint long, uint temperature, bool humidity) external {
+    function saveData(uint lat, uint long, uint temperature, uint humidityAir, bool humidityGround) external {
         require(msg.sender == sensorAccount);
         dataPoints.push(Data(lat, long, temperature, humidity));
     }
