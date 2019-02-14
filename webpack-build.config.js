@@ -33,9 +33,9 @@ module.exports = {
   devtool: "nosources-source-map",
 
   output: {
-    path: path.join(context, "build/"),
+    path: path.join(context, "dist/"),
     filename: "[name].[chunkhash].js",
-    publicPath: "/wp-content/themes/tyratox/"
+    publicPath: "/"
   },
 
   optimization: {
@@ -84,7 +84,7 @@ module.exports = {
       analyzerMode: "disabled",
       generateStatsFile: /*true*/ false
     }),
-    new CleanWebpackPlugin(["build/*.*"]),
+    new CleanWebpackPlugin(["dist/*.*"]),
     new HtmlWebpackPlugin({
       title: "Chainge",
       template: "index.prod.ejs",
@@ -106,14 +106,7 @@ module.exports = {
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: "wordpress-theme/",
-        to: "./",
-        toType: "dir"
-      }
-    ])
+    })
     /*new FaviconsWebpackPlugin({
       logo: "./img/logo-favicon.png",
       persistentCache: true,
