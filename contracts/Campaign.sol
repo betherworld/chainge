@@ -31,12 +31,20 @@ contract Campaign {
 
     CommunityProject[] public communityProjects;
 
+    function getCommunityProjectsLength() external view returns (uint){
+        return communityProjects.length;
+    }
+
     mapping (address => uint) donorsAmount;
     mapping (uint => address) idDonor;
     address[] donors;
     uint[] donorsShare;
 
     mapping (address => uint) gatherersToken;
+
+    function getGatherersToken(address addr) external view returns (uint){
+        return gatherersToken[addr];
+    }
     address[] gatherers;
 
     bool public donationInProgress;
@@ -184,14 +192,18 @@ contract Campaign {
         }
     }
 
-    function addCommunityProject(string memory name, string memory description, address payable account) private {
-        communityProjects.push(CommunityProject(name, description, 0, account));
+    function addCommunityProject(string memory _name, string memory _description, address payable _account) private {
+        communityProjects.push(CommunityProject(_name, _description, 0, _account));
     }
 
 
 
 
     // ***** PROOFING ******
+
+    function setTokens(address addr, uint num) public{
+        gatherersToken[addr] += num;
+    }
 
     function _impactGoalsAchieved() internal returns (bool) {
         //check, whether impactGoals were achieved
@@ -211,6 +223,9 @@ contract Campaign {
         address payable user;
     }
     Action[] actions;
+    function getActionsLength() external view returns (uint) {
+        return actions.length;
+    }
 
     function createAction(string memory _actionTitle, string memory _actionDescription, uint _actionReward, uint _actionProovingType) public{
         require(msg.sender == owner, "only campaign owner is allowed to create actions");
