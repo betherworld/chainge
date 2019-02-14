@@ -14,6 +14,8 @@ contract Campaign {
     uint precision = 10000;
     address sensorAccount;
 
+    uint achievedScore;
+
     uint public startTimeDonations;
     uint public runTimeDonations;
 
@@ -67,7 +69,7 @@ contract Campaign {
         title = "Save the Bisons!";
         description = "This is a sample Campaign to demonstrate the power of blockchain technology.";
         country = "Romania";
-        goalScore = 100;
+        goalScore = 1;
         ratioProject = 60;
         paymentBaseUnit = 10 finney;
 
@@ -241,7 +243,7 @@ contract Campaign {
     // ***** SENSORS *******
 
     function setSensorAccount(address _sensorAccount) public {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "you are not the owner of the contract");
         sensorAccount = _sensorAccount;
     }
 
@@ -262,7 +264,7 @@ contract Campaign {
 
     function _impactGoalsAchieved() internal returns (bool) {
         //check, whether impactGoals were achieved
-        return true;
+        return achievedScore >= goalScore;
     }
 
 
@@ -279,9 +281,7 @@ contract Campaign {
         string submissionData;
         address payable user;
     }
-
     Action[] public actions;
-
     function getActionsLength() external view returns (uint) {
         return actions.length;
     }
@@ -345,6 +345,10 @@ contract Campaign {
 
     function setTokens(address addr, uint num) public{
         gatherersToken[addr] += num;
+    }
+
+    function setScore(uint _score) external {
+        achievedScore = _score;
     }
 
 } 
