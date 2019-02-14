@@ -38,6 +38,15 @@ Terminologoy
 
 ## Community 
 
+- The local community is incentivized to participate in data-collection and nature-preservation actions by awarding voting tokens for every successful action.
+- Blockchain technology is keeping track of every action and awarded token. Fraud and shadow economy are effectively prevented.
+- With an easy to use user interface, active community members can influence the wellbeing of their society by voting for different community projects.
+- The Smart Contract automatically transfers the funds to the community projects proportionally to their voting count.
+
+### Further development
+
+
+
 ## Gatherer
 
 ## Ecosystem
