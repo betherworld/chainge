@@ -175,8 +175,13 @@ contract Campaign {
     }
 
     function payout() private{
-        for(uint i = 0; i < communityProjects.length; i++ ){
+        for(uint i = 0; i < communityProjects.length; i++) {
+            CommunityProject memory communityProject = communityProjects[i];
+            uint votesReceived = communityProject.voteCount;
+            uint share = (votesReceived * precision) / voteCountTotal;
             communityProjects[i].account.transfer(1);
+            uint payOutAmount = (voteCountTotal / precision) * share;
+            communityProject.account.transfer(payOutAmount);
         }
     }
 
