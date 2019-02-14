@@ -12,6 +12,7 @@ contract Campaign {
 
     uint totalBalance;
     uint precision = 10000;
+    address sensorAccount;
 
     uint public startTimeDonations;
     uint public runTimeDonations;
@@ -205,10 +206,35 @@ contract Campaign {
         gatherersToken[addr] += num;
     }
 
+
+
+    // ***** SENSORS *******
+
+    function setSensorAccount(address _sensorAccount) public {
+        require(msg.sender == owner);
+        sensorAccount = _sensorAccount;
+    }
+
+    struct Data {
+        uint lat;
+        uint long;
+        uint temperature;
+        bool humidity;
+    }
+
+    Data[] dataPoints;
+
+    function saveData(uint lat, uint long, uint temperature, bool humidity) external {
+        require(msg.sender == sensorAccount);
+        dataPoints.push(Data(lat, long, temperature, humidity));
+    }
+
     function _impactGoalsAchieved() internal returns (bool) {
         //check, whether impactGoals were achieved
         return true;
     }
+
+
 
     // ***** actions *****
 
