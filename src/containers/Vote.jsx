@@ -8,12 +8,13 @@ import { FaSortUp } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";
 import Page from "../components/Page";
 import Container from "../components/Container";
-import { getProjects } from "../reducers";
-import { fetchProjects } from "../actions/project";
+import { getProjects, getVoteTokens, getCampaign } from "../reducers";
+import { fetchProjects, voteForProject } from "../actions/project";
 import { colors, borders } from "../utilities/style";
 import Button from "../components/Button";
 import NegativeButton from "../components/NegativeButton";
 import { fetchAccount } from "../actions/account";
+import { fetchCampaign } from "../actions/campaign";
 
 const Project = styled(Box)`
   h2 {
@@ -58,12 +59,13 @@ const Votes = styled.div`
  */
 class Vote extends React.PureComponent {
   componentDidMount = () => {
+    this.props.fetchCampaign();
     this.props.fetchAccount();
     this.props.fetchProjects();
   };
 
   render = () => {
-    const { projects } = this.props;
+    const { campaign, projects, voteTokens } = this.props;
 
     return (
       <Wrapper slider header footer>
@@ -72,6 +74,9 @@ class Vote extends React.PureComponent {
         </Helmet>
         <Page>
           <Container>
+            Gatherers Token count: {voteTokens}
+            <br />
+            {JSON.stringify(campaign)}
             <Flex wrap>
               {projects.map((project, index) => (
                 <Project key={index} width={[1, 1, 1 / 2, 1 / 2]} pr={2}>
@@ -80,11 +85,7 @@ class Vote extends React.PureComponent {
                     <p>{project.description}</p>
                     <Votes>
                       <NegativeButton
-                        onClick={() =>
-                          new Promise((resolve, reject) => {
-                            setTimeout(() => resolve(), 2000);
-                          })
-                        }
+                        onClick={() => this.props.voteForProject(project.index)}
                       >
                         <FaSortUp />
                       </NegativeButton>
@@ -103,7 +104,9 @@ class Vote extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
-  projects: getProjects(state)
+  campaign: getCampaign(state),
+  projects: getProjects(state),
+  voteTokens: getVoteTokens(state)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -120,6 +123,21 @@ const mapDispatchToProps = dispatch => ({
    */
   fetchAccount() {
     return dispatch(fetchAccount());
+  },
+  /**
+   * Votes for a project
+   * @param {number} projectIndex The project index
+   * @returns {Promise} the fetch promise
+   */
+  voteForProject(projectIndex) {
+    return dispatch(voteForProject(projectIndex));
+  },
+  /**
+   * Fetches the campaign
+   * @returns {Promise} The fetch promise
+   */
+  fetchCampaign() {
+    return dispatch(fetchCampaign());
   }
 });
 

@@ -20,6 +20,10 @@ const accountReducer = (
             ? action.voteTokens
             : action.voteTokens
       };
+    case "VOTE_FOR_PROJECT":
+      return !action.error && !action.isFetching
+        ? { ...state, voteTokens: voteTokens - 1 }
+        : state;
     default:
       return state;
   }

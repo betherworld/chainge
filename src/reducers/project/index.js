@@ -31,6 +31,19 @@ const projectReducer = (
         projects:
           !action.error && !action.isFetching ? action.projects : state.projects
       };
+    case "VOTE_FOR_PROJECT":
+      return !action.error && !action.isFetching
+        ? {
+            ...state,
+            projects: projects.map(project => ({
+              ...project,
+              voteCount:
+                action.projectIndex === project.index
+                  ? project.voteCount + 1
+                  : project.voteCount
+            }))
+          }
+        : state;
     default:
       return state;
   }
