@@ -19,6 +19,8 @@ import Button from "../components/Button";
 import { fetchCampaign } from "../actions/campaign";
 import { getCampaign } from "../reducers";
 
+const CAMPAIGN_ADDRESS = process.env.CAMPAIGN_ADDRESS;
+
 const FrontWrapper = styled.div`
   h1,
   h2,
@@ -51,6 +53,9 @@ const StyledInput = styled.input`
 
 const LastTransaction = styled.div`
   background-color: ${colors.success};
+  color: #fff;
+  border-radius: ${borders.radius};
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
 `;
 
@@ -111,7 +116,11 @@ class Frontpage extends React.PureComponent {
 
     return new Promise((resolve, reject) => {
       web3.eth.sendTransaction(
-        { from: account, to: account, value: window.web3.toWei(money) },
+        {
+          from: account,
+          to: CAMPAIGN_ADDRESS,
+          value: window.web3.toWei(money)
+        },
         (error, lastTransaction) => {
           if (error) {
             return reject(error);
@@ -194,10 +203,10 @@ class Frontpage extends React.PureComponent {
                     {lastTransaction && (
                       <LastTransaction>
                         <h2>Thank you for supporting us!</h2>
-                        You just supported this campaign with {
-                          lastTransaction
-                        }{" "}
-                        ETH.
+                        <p>
+                          You just supported this campaign with{" "}
+                          {lastTransaction} ETH.
+                        </p>
                       </LastTransaction>
                     )}
                   </Box>
