@@ -293,6 +293,7 @@ contract Campaign {
         require(actions[_actionId].done == false, "action is already done by other user");
         actions[_actionId].user = msg.sender;
         actions[_actionId].submissionData = _actionSubmissionData;
+        actions[_actionId].done = true;
 
         //Automatically verifies all the submissions. Needs to be adjusted in a final version
         verifySubmission(_actionId);
