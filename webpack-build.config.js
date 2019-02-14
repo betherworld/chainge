@@ -35,7 +35,7 @@ module.exports = {
   output: {
     path: path.join(context, "dist/"),
     filename: "[name].[chunkhash].js",
-    publicPath: "/"
+    publicPath: "/chainge/dist/"
   },
 
   optimization: {
