@@ -18,12 +18,13 @@ const UnstyledLink = styled.a`
 
   &:hover {
     text-decoration: underline;
+    color: ${colors.accent};
   }
 `;
 
 const StyledLink = styled(UnstyledLink)`
   text-decoration: underline;
-  color: ${({ color }) => color || "inherit"};
+  color: ${({ color }) => color || colors.accent};
 `;
 
 /**

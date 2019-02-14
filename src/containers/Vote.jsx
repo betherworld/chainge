@@ -11,10 +11,12 @@ import Container from "../components/Container";
 import { getProjects } from "../reducers";
 import { fetchProjects } from "../actions/project";
 import { colors, borders } from "../utilities/style";
+import Button from "../components/Button";
+import NegativeButton from "../components/NegativeButton";
 
 const Project = styled(Box)`
   h2 {
-    margin-top: 0;
+    margin: 0;
   }
 
   & > div {
@@ -30,9 +32,23 @@ const Project = styled(Box)`
 
 const Votes = styled.div`
   position: absolute;
-  right: 0.5rem;
-  top: 0rem;
+  right: 1rem;
+  top: 1rem;
   font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > div:first-child {
+    margin-bottom: -2.5rem;
+    color: ${colors.primary};
+
+    span > svg path {
+      opacity: 1 !important;
+      fill: currentColor !important;
+    }
+  }
 `;
 
 /**
@@ -60,7 +76,22 @@ class Vote extends React.PureComponent {
                   <div>
                     <h2>{project.title}</h2>
                     <p>{project.description}</p>
-                    <Votes>{project.voteCount}</Votes>
+                    <Votes>
+                      <NegativeButton
+                        state={
+                          project.title.startsWith("G") ? "disabled" : undefined
+                        }
+                        onClick={() =>
+                          new Promise((resolve, reject) => {
+                            setTimeout(() => resolve(), 2000);
+                          })
+                        }
+                      >
+                        <FaSortUp />
+                      </NegativeButton>
+                      <br />
+                      30
+                    </Votes>
                   </div>
                 </Project>
               ))}

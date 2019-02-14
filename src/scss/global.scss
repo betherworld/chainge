@@ -17,3 +17,8 @@ ul {
   margin: 0.5rem 0;
   padding-left: 1rem;
 }
+
+input:focus {
+  outline: none;
+  border-color: #333;
+}

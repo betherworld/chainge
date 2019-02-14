@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { elastic as Menu } from "react-burger-menu";
 import { decorator as reduxBurgerMenu } from "redux-burger-menu";
 import { FaHome } from "react-icons/fa";
-import { IoLogoRss as BlogIcon } from "react-icons/io";
 import { FaComment as ContactIcon, FaInfoCircle } from "react-icons/fa";
 
 import Link from "../components/Link";
@@ -34,7 +33,6 @@ const ReduxBurgerMenu = reduxBurgerMenu(Menu);
  */
 class BurgerMenu extends React.PureComponent {
   render = () => {
-
     return (
       <ReduxBurgerMenu right>
         <BurgerList>
@@ -74,8 +72,6 @@ class BurgerMenu extends React.PureComponent {
   };
 }
 
-const mapStateToProps = state => ({
- 
-});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(BurgerMenu);

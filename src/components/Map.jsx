@@ -91,7 +91,7 @@ class Map extends React.PureComponent {
                         outline: "none"
                       },
                       pressed: {
-                        fill: "#FFB64B",
+                        fill: "#333",
                         stroke: "#A15F00",
                         strokeWidth: 0.75,
                         outline: "none"

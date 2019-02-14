@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
+import { FaEthereum } from "react-icons/fa";
 
 import Wrapper from "../components/Wrapper";
 import Page from "../components/Page";
@@ -12,6 +13,7 @@ import { fetchAccount } from "../actions/account";
 import { getAccount } from "../reducers";
 import { borders, colors } from "../utilities/style";
 import web3 from "../web3";
+import Button from "../components/Button";
 
 const FrontWrapper = styled.div`
   h1 {
@@ -41,18 +43,9 @@ const LastTransaction = styled.div`
   padding: 0.5rem 1rem;
 `;
 
-const StyledButton = styled.button`
-  background-color: ${colors.primary};
-  color: #fff;
-  padding: 0.5rem 0.5rem;
-  border-radius: ${borders.inputRadius};
-  border: none;
-  cursor: pointer;
-
-  margin: 1rem auto;
-  display: block;
-
-  font-size: 1.5rem;
+const StyledButton = styled.div`
+  text-align: center;
+  font-size: 1.25rem;
 `;
 
 /**
@@ -82,12 +75,17 @@ class Frontpage extends React.PureComponent {
       return;
     }
 
-    web3.eth.sendTransaction(
-      { from: account, to: account, value: window.web3.toWei(money) },
-      (error, lastTransaction) => {
-        this.setState({ lastTransaction: money });
-      }
-    );
+    return new Promise((resolve, reject) => {
+      web3.eth.sendTransaction(
+        { from: account, to: account, value: window.web3.toWei(money) },
+        (error, lastTransaction) => {
+          if (error) {
+            return reject(error);
+          }
+          resolve(this.setState({ lastTransaction: money }));
+        }
+      );
+    });
   };
 
   render = () => {
@@ -117,7 +115,12 @@ class Frontpage extends React.PureComponent {
                   Enter the amount of ether with which you want to support this
                   project.
                 </Description>
-                <StyledButton onClick={() => this.fund()}>Confirm</StyledButton>
+                <StyledButton>
+                  <Button onClick={() => this.fund()}>
+                    <FaEthereum />
+                    Confirm
+                  </Button>
+                </StyledButton>
 
                 {lastTransaction && (
                   <LastTransaction>
