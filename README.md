@@ -4,10 +4,6 @@ This is a project submission for the 2019 BETH "Blockchain School for Sustainabi
 
 The following students from ETH Zurich contributed to the project: Nico Hauser, David Rode, David Schmid, Ben Spöttling, Patrick Züst.
 
-[TOC]
-
-
-
 # Overview
 
 ![1550128728832](assets/1550128728832.png)
@@ -20,20 +16,21 @@ Terminologoy
 
 # Features
 
-## Donor
+## Donors
 
-- Campaign details and goals are displayed on a web interface.
+- Information about a campaign and specific impact goals are displayed on the website. Those details are stored in a blockchain and it is hence impossible to change them retrospectively.
 
-- Donors can make donations to a Campaign with an Ether transaction to the Smart Contract. 
+- Donors can make an Ether donation to the Campaign, if they are convinced of the specific parameters and impact goals. The funds are then stored in a decentralized smart contract and can therefore only be used for their intended purpose. This can easily be verified by donors as well as regulators - there is no need to trust a middleman.
 
-- The Smart Contract automatically redirects the split for the primary WWF project to a predefined address.
+- A previously defined split of the donations is automatically sent to the initiator of the campaign. It is however not possible to claim any other donations.
 
-- If the campaign goals are not met, the remaining amount will be reimbursed to the donors.
+- In case the campaign goals are not met, the remaining funds are reimbursed automatically to the donors. This is a reassurance for them, but also an incentive for the citizens and the project initiator.
 
 ### Further development
 
-- Donors could be allowed to customize the split, this feature is not implemented because this would allow an unbalanced distribution.
+- Donors could be allowed to explicitly state, how much of their money should go towards the environmental campaign and how much towards the community project. 
 
+- With the data gathered during a campaign, it is possible to automatically generate regular updates for donors.
   
 
 ## Community 
