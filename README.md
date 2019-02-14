@@ -4,6 +4,10 @@ Introduction
 hackathon challenge wwf
 contributors
 
+[TOC]
+
+
+
 # Overview
 
 ![1550128728832](assets/1550128728832.png)
@@ -12,9 +16,25 @@ contributors
 
 General Flow
 
+Terminologoy
+
 # Features
 
 ## Donor
+
+- Campaign details and goals are displayed on a web interface.
+
+- Donors can make donations to a Campaign with an Ether transaction to the Smart Contract. 
+
+- The Smart Contract automatically redirects the split for the primary WWF project to a predefined address.
+
+- If the campaign goals are not met, the remaining amount will be reimbursed to the donors.
+
+### Further development
+
+- Donors could be allowed to customize the split, this feature is not implemented because this would allow an unbalanced distribution.
+
+  
 
 ## Community 
 

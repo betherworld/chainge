@@ -2,25 +2,25 @@ pragma solidity ^0.5.0;
 
 contract Campaign {
 
-    string title;
-    string country;
-    string description;
-    uint goalScore;
-    uint ratioProject;
+    string public title;
+    string public country;
+    string public description;
+    uint public goalScore;
+    uint public ratioProject;
     address payable owner;
     uint paymentBaseUnit;
 
     uint totalBalance;
     uint precision = 10000;
 
-    uint startTimeDonations;
-    uint runTimeDonations;
+    uint public startTimeDonations;
+    uint public runTimeDonations;
 
-    uint startTimeCampaign;
-    uint runTimeCampaign;
+    uint public startTimeCampaign;
+    uint public runTimeCampaign;
     
-    uint startTimeVoting;
-    uint runTimeVoting; 
+    uint public startTimeVoting;
+    uint public runTimeVoting; 
 
     struct CommunityProject {
         string title;
@@ -49,7 +49,7 @@ contract Campaign {
 
     bool public donationInProgress;
     bool public campaignInProgress;
-    bool votingInProgress;
+    bool public votingInProgress;
         
     constructor() public {
         owner = msg.sender;
