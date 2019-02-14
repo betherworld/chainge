@@ -42,7 +42,7 @@ class Map extends React.PureComponent {
     super();
 
     this.state = {
-      zoom: 1
+      zoom: 5
     };
   }
 
@@ -61,15 +61,15 @@ class Map extends React.PureComponent {
     return (
       <RelativeDiv>
         <ComposableMap
-          projectionConfig={{ scale: 1800 }}
+          projectionConfig={{ scale: 1000 }}
           width={1000}
-          height={200}
+          height={500}
           style={{
-            width: "100%",
-            height: "auto"
+            width: "500px",
+            height: "250px"
           }}
         >
-          <ZoomableGroup center={[29, 51.25]} zoom={this.state.zoom}>
+          <ZoomableGroup center={[12, 24]} zoom={this.state.zoom}>
             <Geographies geography="/maps/romania.json">
               {(geographies, projection) =>
                 geographies.map((geography, i) => (

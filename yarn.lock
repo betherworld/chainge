@@ -8458,6 +8458,11 @@ react-syntax-highlighter@^10.1.2:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
+react-timeago@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-timeago/-/react-timeago-4.3.0.tgz#ff47bb12c3c2a40bc31e6b3e457f5ac4a690a3ec"
+  integrity sha512-q89RXb4K16xyDdy2GR/mIRYrDw8ll/RlohSIgjCr1J85eHKeL/XEl4XPKICMdJnJpaXwRzOjlsdnEuxWsi61RQ==
+
 react-tooltip@^3.9.2:
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-3.9.2.tgz#df74e6f5fd454bb15132d5d2d506895cf505cb5e"

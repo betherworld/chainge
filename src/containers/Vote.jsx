@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
 import { FaSortUp } from "react-icons/fa";
+import TimeAgo from "react-timeago";
 
 import Wrapper from "../components/Wrapper";
 import Page from "../components/Page";
@@ -53,6 +54,15 @@ const Votes = styled.div`
   }
 `;
 
+const Warning = styled.div`
+  background-color: ${colors.warning};
+  color: #fff;
+  border-radius: ${borders.radius};
+  padding: 1rem;
+
+  margin-bottom: 1rem;
+`;
+
 /**
  * The vote page
  * @returns {Component} The component
@@ -67,6 +77,29 @@ class Vote extends React.PureComponent {
   render = () => {
     const { campaign, projects, voteTokens } = this.props;
 
+    const votingEnabled =
+      (campaign && campaign.votingInProgress) || voteTokens > 0;
+    let date = 0;
+
+    if (campaign) {
+      date += campaign.startTimeVoting;
+
+      if (date == 0) {
+        date += campaign.startTimeCampaign;
+
+        if (date > 0) {
+          date += campaign.runTimeCampaign;
+        } else {
+          date +=
+            campaign.startTimeDonations +
+            campaign.runTimeDonations +
+            campaign.runTimeCampaign;
+        }
+      }
+    }
+
+    date *= 1000;
+
     return (
       <Wrapper slider header footer>
         <Helmet>
@@ -77,21 +110,43 @@ class Vote extends React.PureComponent {
             Gatherers Token count: {voteTokens}
             <br />
             {JSON.stringify(campaign)}
+            {!votingEnabled && date && (
+              <Warning>
+                <h2>Warning</h2>
+                <p>
+                  {Date.now() >= date ? (
+                    <span>
+                      Voting is currently not enabled, it will start shortly
+                    </span>
+                  ) : (
+                    <span>
+                      Voting is currently not enabled, it will start in about{" "}
+                      <TimeAgo date={date} />
+                    </span>
+                  )}
+                </p>
+              </Warning>
+            )}
             <Flex wrap>
               {projects.map((project, index) => (
                 <Project key={index} width={[1, 1, 1 / 2, 1 / 2]} pr={2}>
                   <div>
                     <h2>{project.title}</h2>
                     <p>{project.description}</p>
-                    <Votes>
-                      <NegativeButton
-                        onClick={() => this.props.voteForProject(project.index)}
-                      >
-                        <FaSortUp />
-                      </NegativeButton>
-                      <br />
-                      {project.voteCount}
-                    </Votes>
+
+                    {votingEnabled && (
+                      <Votes>
+                        <NegativeButton
+                          onClick={() =>
+                            this.props.voteForProject(project.index)
+                          }
+                        >
+                          <FaSortUp />
+                        </NegativeButton>
+                        <br />
+                        {project.voteCount}
+                      </Votes>
+                    )}
                   </div>
                 </Project>
               ))}

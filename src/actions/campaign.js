@@ -2,6 +2,43 @@ import { campaignContract } from "../web3/contracts/CampaignContract";
 import { promiseify } from "../utilities/promise";
 
 /**
+ * Maps the campaign
+ * @param {Object} campaign The campaign object
+ * @returns {Object} The mapped object
+ */
+const mapCampaign = ({
+  title,
+  country,
+  description,
+  goalScore,
+  ratioProject,
+  startTimeDonations,
+  runTimeDonations,
+  startTimeCampaign,
+  runTimeCampaign,
+  startTimeVoting,
+  runTimeVoting,
+  donationInProgress,
+  campaignInProgress,
+  votingInProgress
+}) => ({
+  title,
+  country,
+  description,
+  goalScore: parseInt(goalScore),
+  ratioProject: parseInt(ratioProject),
+  startTimeDonations: parseInt(startTimeDonations),
+  runTimeDonations: parseInt(runTimeDonations),
+  startTimeCampaign: parseInt(startTimeCampaign),
+  runTimeCampaign: parseInt(runTimeCampaign),
+  startTimeVoting: parseInt(startTimeVoting),
+  runTimeVoting: parseInt(runTimeVoting),
+  donationInProgress,
+  campaignInProgress,
+  votingInProgress
+});
+
+/**
  * Creates a fetch campaign action
  * @param {Error} error The potential error object
  * @param {boolean} isFetching Whether we are currently fetching
@@ -56,22 +93,26 @@ export const fetchCampaign = () => dispatch => {
         votingInProgress
       ]) => {
         dispatch(
-          fetchCampaignAction(false, false, {
-            title,
-            country,
-            description,
-            goalScore,
-            ratioProject,
-            startTimeDonations,
-            runTimeDonations,
-            startTimeCampaign,
-            runTimeCampaign,
-            startTimeVoting,
-            runTimeVoting,
-            donationInProgress,
-            campaignInProgress,
-            votingInProgress
-          })
+          fetchCampaignAction(
+            false,
+            false,
+            mapCampaign({
+              title,
+              country,
+              description,
+              goalScore,
+              ratioProject,
+              startTimeDonations,
+              runTimeDonations,
+              startTimeCampaign,
+              runTimeCampaign,
+              startTimeVoting,
+              runTimeVoting,
+              donationInProgress,
+              campaignInProgress,
+              votingInProgress
+            })
+          )
         );
       }
     )
