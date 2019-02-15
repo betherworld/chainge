@@ -107,26 +107,6 @@ class Vote extends React.PureComponent {
 
     const votingEnabled =
       campaign && campaign.votingInProgress && voteTokens > 0;
-    let date = 0;
-
-    if (campaign) {
-      date += campaign.startTimeVoting;
-
-      if (date == 0) {
-        date += campaign.startTimeCampaign;
-
-        if (date > 0) {
-          date += campaign.runTimeCampaign;
-        } else {
-          date +=
-            campaign.startTimeDonations +
-            campaign.runTimeDonations +
-            campaign.runTimeCampaign;
-        }
-      }
-    }
-
-    date *= 1000;
 
     return (
       <Wrapper slider header footer>
@@ -147,16 +127,7 @@ class Vote extends React.PureComponent {
               <Warning>
                 <h2>Warning</h2>
                 <p>
-                  {Date.now() >= date ? (
-                    <span>
-                      Voting is currently not enabled, it will start shortly
-                    </span>
-                  ) : (
-                    <span>
-                      Voting is currently not enabled, it will start in about{" "}
-                      <TimeAgo date={date} />
-                    </span>
-                  )}
+                  <span>Voting is currently not enabled</span>
                 </p>
               </Warning>
             )}
