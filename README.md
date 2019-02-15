@@ -3,9 +3,9 @@
 
 *Disclaimer: This is a hackathon project that was built over the course of two days by students of ETH Zurich. It is by no means perfect. Don’t use it in a real setting, but feel free to be inspired for your own projects.*
 
-Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards for locals acting ecologically are limited and because measuring the impact of such campaigns is hard. Using blockchain technology, we propose a system that offers citizens incentives to not only preserve the environment they live in, but to actively participate in the perservation. Donations are processed in a decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed in case their donations do not have the desired impact.
+Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards for locals acting ecologically are limited and because measuring the impact of such campaigns is hard. Using blockchain technology, we propose a system that offers citizens incentives to not only preserve the environment they live in, but to actively participate in the preservation. Donations are processed in a decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed in case their donations do not have the desired impact.
 
-This is a project submission for the 2019 BETH "Blockchain School for Sustainability" hackathon. It was built for the "Wild AI" challenge by WWF and uses the Ethereum network. The current version is a functional (but admittedly hacky) prototype that runs on the XXX testnet.
+This is a project submission for the 2019 BETH "Blockchain School for Sustainability" hackathon. It was built for the "Wild AI" challenge by WWF and uses the Ethereum network. The current version is a functional (but admittedly hacky) prototype that runs on the Ropsten testnet.
 
 The following students from ETH Zurich contributed to the project: Nico Hauser, David Rode, David Schmid, Ben Spöttling, Patrick Züst.
 
@@ -63,7 +63,7 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 
 - Data submitted by gatherers is not processed or stored, as we are only working with test data.
 
-- There is currently no verification system in place to check the submitted actions. This check could be performed either by the campaign initiator or (preferably) by other community members. This would demand a reputation score system: The trustworthiness of citizens decreases, if they consciously make false claims or if they verify claims that turn out to be false.
+- There is currently no verification system in place to check the submitted actions. This check could be sformed either by the campaign initiator or (preferably) by other community members. This would demand a reputation score system: The trustworthiness of citizens decreases, if they consciously make false claims or if they verify claims that turn out to be false.
 
 - Certain actions can be verified automatically by using technologies like image recognition and statistical analysis.
 
@@ -98,3 +98,13 @@ The prototype has QR-codes placed at the inside and the outside of its case. Whe
 The smart contract was written in Solidity and runs on the Ethereum network. The responsive web interface is built on React and uses the web3.js API to connect to the smart contract. 
 
 # Setup
+
+- Clone the project with `git clone https://github.com/betherworld/chainge.git`
+- Change the working directory `cd chainge`
+- Install all dependencies with `yarn install` or `npm install`
+- Install and start [Ganache](https://truffleframework.com/ganache)
+- Install [truffle](https://github.com/trufflesuite/truffle/) with `yarn global add truffle` or `npm install -g truffle`
+- Deploy contract to the blockchain with `truffle migrate`
+- Retrieve the contract address from the output of the last command
+- Copy the `.env.example` file to `.env` and set `CAMPAIGN_ADDRESS` to the retrieved contract address
+- Run the development server with `yarn dev`
