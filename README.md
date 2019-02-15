@@ -23,7 +23,7 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 
 ## Donors
 
-![screenshot of donate page](assets/donate.jpg)
+![screenshot of donate page](assets/donate.png)
 
 - Information about a campaign and specific impact goals are displayed on the website. Those details are stored in a blockchain and it is hence impossible to change them retrospectively.
 
