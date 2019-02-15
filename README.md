@@ -19,9 +19,11 @@ Immediately after the smart contract is submitted to the blockchain, the donatio
 
 The features of Chainge are presented in regards to the nodes of the WWF diagram shown below. As this project is only a prototype of a much bigger vision, some ideas for further improvements are listed, too. 
 
-![1550128728832](assets/1550128728832.png) ![1550128804700](assets/1550128804700.png)
+![diagram WWF](assets/1550128728832.png) ![diagram WWF](assets/1550128804700.png)
 
 ## Donors
+
+![screenshot of donate page](assets/donate.jpg)
 
 - Information about a campaign and specific impact goals are displayed on the website. Those details are stored in a blockchain and it is hence impossible to change them retrospectively.
 
@@ -40,6 +42,7 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 
 ## Community 
 
+![screenshot of community project page](assets/voting.jpg)
 - If the impact goals are met, active community members can participate in a vote about the allocation of the remaining funds. They can distribute their tokens to different projects according to their preferences. Tokens can not be traded to prevent fraudulent use.
 
 - The smart contract automatically transfers the funds to the community projects proportionally to the allocated voting tokens. Neither the campaign initiator nor the donors can interfere in this process. 
@@ -51,6 +54,8 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 - Community projects can currently only be initiated by the contract owner. In a future version, it might be possible for community members to propose new projects, while the campaign is running. To prevent abuse, it would be necessary to verify these projects - either centrally by the campaign initiator or alternatively by the community members and/or the campaign donors.
 
 ## Gatherer
+
+![screenshot of submit action page](assets/submitAction.jpg)
 
 - The project initiator is able to define positive actions that the citizens can take to support the campaign. Each action automatically rewards a predefined amount of voting tokens and Ether to the citizen after successful completion.
 
@@ -73,6 +78,7 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 - Sensor data is currently stored on chain which leads to high transaction costs. It could alternatively be saved on IPFS or in a database that is only partially decentralized.
 
 # Technology
+
 ## Hardware
 
 ![prototype of the Chainge sensor module](assets/sensor_prototype.jpg)
