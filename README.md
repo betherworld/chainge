@@ -108,3 +108,5 @@ The smart contract was written in Solidity and runs on the Ethereum network. The
 - Retrieve the contract address from the output of the last command
 - Copy the `.env.example` file to `.env` and set `CAMPAIGN_ADDRESS` to the retrieved contract address
 - Run the development server with `yarn dev`
+
+In order to interact with the website, you need the [MetaMask](https://metamask.io) extension in a chromium browser.
