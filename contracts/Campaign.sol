@@ -1,7 +1,8 @@
 pragma solidity ^0.5.0;
 
 contract Campaign {
-
+    
+    // parameters of a campaign
     string public title;
     string public country;
     string public description;
@@ -9,22 +10,22 @@ contract Campaign {
     uint public ratioProject;
     address payable owner;
     uint paymentBaseUnit;
-
+    
     uint totalBalance;
     uint precision = 10000;
     address sensorAccount;
 
     uint achievedScore;
 
+    // duration of the individual stages of a campaign
     uint public startTimeDonations;
     uint public runTimeDonations;
-
     uint public startTimeCampaign;
-    uint public runTimeCampaign;
-    
+    uint public runTimeCampaign; 
     uint public startTimeVoting;
     uint public runTimeVoting; 
-
+    
+    // object that definies a community project
     struct CommunityProject {
         string title;
         string description;
@@ -37,19 +38,22 @@ contract Campaign {
     function getCommunityProjectsLength() external view returns (uint){
         return communityProjects.length;
     }
-
+    
+    // how much money has each donor donated?
     mapping (address => uint) donorsAmount;
     mapping (uint => address) idDonor;
     address[] donors;
     uint[] donorsShare;
-
+    
+    // how many tokens has each gatherer earned?
     mapping (address => uint) gatherersToken;
 
     function getGatherersToken(address addr) external view returns (uint){
         return gatherersToken[addr];
     }
     address[] gatherers;
-
+    
+    // booleans indicating the stage the campaign is currently in
     bool public donationInProgress;
     bool public campaignInProgress;
     bool public votingInProgress;
@@ -64,7 +68,8 @@ contract Campaign {
         donationInProgress = true;
         startTimeDonations = now;
     }
-
+    
+    // creates a sample campaign. parameters could be sent by a web interface in a final version
     function _createCampaign() internal {
         title = "Save the Bisons!";
         description = "This is a sample Campaign to demonstrate the power of blockchain technology.";
@@ -77,7 +82,8 @@ contract Campaign {
         runTimeCampaign = 30 seconds;
         runTimeVoting = 30 seconds;
     }
-
+    
+    // creates two sample community projects. parameters could be sent by a web interface in a final version
     function _createAllCommunityProjects() internal {
         addCommunityProject(
             "Schools 4 Everybody", 
@@ -92,6 +98,7 @@ contract Campaign {
         );
     }
 
+    // creates three sample actions. parameters could be sent by a web interface in a final version
     function _createInitialActions() internal {
         Action memory action1 = Action(
             "Take a picture of a bison", 
@@ -129,7 +136,8 @@ contract Campaign {
         );
         actions.push(action3);
     }
-
+    
+    // default function that processes donations, which are sent to the contract
     function() external payable {
         require(donationInProgress, "donation not in progress");
         if(donorsAmount[msg.sender] == 0) {
@@ -137,7 +145,8 @@ contract Campaign {
         }
         donorsAmount[msg.sender] += msg.value;
     }
-
+    
+    // forwards a share of the funds to the campaign initiator and starts the campaign
     function startCampaign() external {
         require(donationInProgress, "donation not in progress");
         require(now >= startTimeDonations + runTimeDonations, "too soon, donations time not yet up.");
@@ -150,7 +159,9 @@ contract Campaign {
         uint forOwner = (address(this).balance / 100) * ratioProject;
         owner.transfer(forOwner);        
     }
-
+    
+    // calculates the share of each donor, in case the impact goals are not met
+    // and the money needs to be returned
     function _calculateDonorsShare() internal {
         totalBalance = address(this).balance;
         for(uint i = 0; i < donors.length; i++) {
@@ -160,7 +171,9 @@ contract Campaign {
             donorsShare.push(share);
         }
     }
-
+    
+    // if the impact goals are not met, the remaining funds are sent back
+    // to the donors proportional to their original investment.
     function _refund() internal {
         uint totalRefund = address(this).balance;
         for(uint i = 0; i < donors.length; i++) {
@@ -171,7 +184,9 @@ contract Campaign {
         //in case there are some (very small funds) remaining, send it to the owner
         owner.transfer(address(this).balance);
     } 
-
+    
+    // when campaign stage is over, this function checks the completion of the impact goals
+    // and proceeds accordingly
     function startVoting() external {
         require(campaignInProgress, "campaign not in progress");
         require(now >= startTimeCampaign + runTimeCampaign, "too soon, campaign time not yet up");
@@ -183,7 +198,8 @@ contract Campaign {
             votingInProgress = true;
         }
     }
-
+    
+    // terminates the voting phase and triggers the payout to community projects
     function endVoting() external {
         require(votingInProgress, "voting not in progress");
         require(now >= startTimeVoting + runTimeVoting, "too soon, voting time not yet up");
@@ -201,6 +217,7 @@ contract Campaign {
         uint indexed communityProjectId
     );
 
+    // voting for community projects
     function vote(uint _communityProjectId, uint _voteCount) public {
         // check if voting is in progress
         require(votingInProgress, "Voting not in progress");
@@ -223,7 +240,8 @@ contract Campaign {
         //trigger vote event
         emit votedEvent(_communityProjectId);
     }
-
+    
+    // releases fund to community projects proportionally to the voting tokens received
     function payout() private{
         for(uint i = 0; i < communityProjects.length; i++) {
             CommunityProject memory communityProject = communityProjects[i];
@@ -233,7 +251,8 @@ contract Campaign {
             communityProject.account.transfer(payOutAmount);
         }
     }
-
+    
+    // adds a community project to the array
     function addCommunityProject(string memory _name, string memory _description, address payable _account) private {
         communityProjects.push(CommunityProject(_name, _description, 0, _account));
     }
@@ -241,12 +260,14 @@ contract Campaign {
 
 
     // ***** SENSORS *******
-
+    
+    // the contract owner is able to set the addresses of the sensor modules that are allowed to send data
     function setSensorAccount(address _sensorAccount) public {
         require(msg.sender == owner, "you are not the owner of the contract");
         sensorAccount = _sensorAccount;
     }
-
+    
+    // object that stores that available sensor data
     struct Data {
         uint lat;
         uint long;
@@ -257,20 +278,25 @@ contract Campaign {
 
     Data[] dataPoints;
 
+    // receives sensor data and stores it in the blockchain
     function saveData(uint lat, uint long, uint temperature, uint humidityAir, bool humidityGround) external {
         require(msg.sender == sensorAccount, "You're now allowed to send data!");
         dataPoints.push(Data(lat, long, temperature, humidityAir, humidityGround));
     }
-
+    
+    //check, whether impactGoals were achieved
     function _impactGoalsAchieved() internal returns (bool) {
-        //check, whether impactGoals were achieved
         return achievedScore >= goalScore;
     }
 
 
 
     // ***** actions *****
-
+    
+    // action that data gatherers can take
+    // 'done' indicates, whether somebody claims to have completed that action
+    // 'proofing type indicates, how an action can be verified
+    // 'verified' indicates, whether the completion of a certain action was already verified
     struct Action{
         string title;
         string description;
@@ -285,13 +311,15 @@ contract Campaign {
     function getActionsLength() external view returns (uint) {
         return actions.length;
     }
-
+    
+    // contract owner can define actions, which award ether / tokens to citizens
     function createAction(string memory _actionTitle, string memory _actionDescription, uint _actionReward, uint _actionProovingType) public{
         require(msg.sender == owner, "only campaign owner is allowed to create actions");
         require(address(this).balance > 0, "no balance");
         actions.push(Action(_actionTitle, _actionDescription, _actionReward, false, _actionProovingType, false, "", address(0)));
     }
-
+    
+    // citizens claim that they fulfilled an action and send data to prove it
     function submitAction(uint _actionId, string memory _actionSubmissionData) public {
         require(actions[_actionId].done == false, "action is already done by other user");
         actions[_actionId].user = msg.sender;
@@ -301,11 +329,13 @@ contract Campaign {
         //Automatically verifies all the submissions. Needs to be adjusted in a final version
         //verifySubmission(_actionId);
     }
-
+    
+    // each type of action has a different type of verification (social, statistical, etc.). this is a sample function
     function _checkSubmissionType0(uint _actionId) internal returns (bool){
         return true;
     }
-
+    
+    // checks, whether citizens actually fulfilled the action they claim to have done
     function verifySubmission(uint _actionId) public{
         require(_actionId < actions.length, "there is no action with this id");
         require(actions[_actionId].done == true, "action is not done yet");
@@ -325,7 +355,8 @@ contract Campaign {
             actions[_actionId].done = false;
         }
     }
-
+    
+    // voting tokens and Ether are rewarded for verified actions proportionally to its complexity
     function _getReward(uint _actionId) internal {
         Action memory action = actions[_actionId];
         gatherersToken[action.user] += action.reward;
