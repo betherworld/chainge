@@ -6,7 +6,7 @@ _Disclaimer: This is a hackathon project that was built over the course of two d
 
 #### Check out our powerpoint slides here: [PPP](https://github.com/betherworld/chainge/raw/master/assets/BETH%20Slides%20Chainge.pptx) 
 
-### Demo Video
+#### Demo Video
 [![Youtube](assets/image.png)](https://youtu.be/c3ifge-GFts "Youtube")
 
 Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards for locals acting ecologically are limited and because measuring the impact of such campaigns is hard. Using blockchain technology, we propose a system that offers citizens incentives to not only preserve the environment they live in, but to actively participate in the preservation. Donations are processed in a decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed in case their donations do not have the desired impact.
