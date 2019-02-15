@@ -98,3 +98,13 @@ The prototype has QR-codes placed at the inside and the outside of its case. Whe
 The smart contract was written in Solidity and runs on the Ethereum network. The responsive web interface is built on React and uses the web3.js API to connect to the smart contract. 
 
 # Setup
+
+- Clone the project with `git clone https://github.com/betherworld/chainge.git`
+- Change the working directory `cd chainge`
+- Install all dependencies with `yarn install` or `npm install`
+- Install and start [Ganache](https://truffleframework.com/ganache)
+- Install [truffle](https://github.com/trufflesuite/truffle/) with `yarn global add truffle` or `npm install -g truffle`
+- Deploy contract to the blockchain with `truffle migrate`
+- Retrieve the contract address from the output of the last command
+- Copy the `.env.example` file to `.env` and set `CAMPAIGN_ADDRESS` to the retrieved contract address
+- Run the development server with `yarn dev`
