@@ -123,7 +123,7 @@ class Vote extends React.PureComponent {
             </Title>
 
             <br />
-            {(!campaign || !campaign.votingInProgress) && date && (
+            {(!campaign || !campaign.votingInProgress) && (
               <Warning>
                 <h2>Warning</h2>
                 <p>
