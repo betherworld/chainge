@@ -6,7 +6,7 @@ import { Flex, Box } from "grid-styled";
 import { FaEthereum } from "react-icons/fa";
 import TimeAgo from "react-timeago";
 
-import ChaingeLogo from "../../img/logo.svg";
+import ChaingeLogoDesc from "../../img/bison-desc.svg";
 import Wrapper from "../components/Wrapper";
 import Page from "../components/Page";
 import Container from "../components/Container";
@@ -148,10 +148,16 @@ class Frontpage extends React.PureComponent {
                   <Box width={[1, 1, 1 / 2, 1 / 2]} pr={2}>
                     <h1>What is "Chainge"?</h1>
                     <Flex>
-                      <Box width={[1, 1, 1 / 2, 1 / 2]} pr={3}>
-                        <img src={ChaingeLogo} />
+                      <Box width={[1, 1, 1 / 2, 2 / 3]} pr={3}>
+                        <img src={ChaingeLogoDesc} />
                       </Box>
-                      <Box width={[1, 1, 1 / 2, 1 / 2]}>Lorem ipsum dolor</Box>
+                      <Box width={[1, 1, 1 / 2, 1 / 3]}>
+                        Chainge is an Ethereum-powered Ðapp that allows for
+                        impactful donations with a money back guarantee and
+                        active citizen participation. Funds go towards
+                        environment preservation as well as local communities –
+                        but only if the predefined impact goals are met.
+                      </Box>
                     </Flex>
                     <h1>{campaign.title}</h1>
                     <p>{campaign.description}</p>
@@ -164,9 +170,12 @@ class Frontpage extends React.PureComponent {
                         %
                       </strong>
                     </p>
-
                     <h1>How can I help?</h1>
-                    <Map />
+                    <p>
+                      You can fund this campaign by transferring money to the
+                      campaign's smart contract address. You can use the form
+                      below.
+                    </p>
                     {campaign && campaign.donationInProgress ? (
                       <div>
                         {" "}
