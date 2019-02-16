@@ -17,7 +17,7 @@ There is a demo running on the ropsten network on GitHub pages over at [https://
 
 Preserving nature and limiting human impact on the environment belong to the most important global challenges of today. However, the planet can not be saved in one day: Environmental campaigns oftentimes fail not due to limited funds, but because short-term rewards for locals acting ecologically are limited and because measuring the impact of such campaigns is hard. Using blockchain technology, we propose a system that offers citizens incentives to not only preserve the environment they live in, but to actively participate in the preservation. Donations are processed in a decentralized way and donors therefore have complete transparency of where their money is going. Additionally, they are reimbursed in case their donations do not have the desired impact.
 
-This is a project submission for the 2019 BETH "Blockchain School for Sustainability" hackathon. It was built for the "Wild AI" challenge by WWF and uses the Ethereum network. The current version is a functional (but admittedly hacky) prototype that runs on the Ropsten testnet.
+This is a project submission for the 2019 BETH "Blockchain School for Sustainability" hackathon. It was built for the "Wild AI" challenge by WWF and uses the Ethereum network. The current version is a functional (but admittedly hacky) prototype that runs on the ropsten testnet.
 
 The following students from ETH Zurich contributed to the project: Nico Hauser, David Rode, David Schmid, Ben Spöttling, Patrick Züst.
 
