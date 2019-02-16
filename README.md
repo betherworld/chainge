@@ -35,7 +35,6 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 
 ## Donors
 
-![screenshot of donate page](assets/donate.png)
 ![gif of donate page](assets/donate.gif)
 
 - Information about a campaign and specific impact goals are displayed on the website. Those details are stored in a blockchain and it is hence impossible to change them retrospectively.
@@ -54,7 +53,6 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 
 ## Community
 
-![screenshot of community project page](assets/voting.jpg)
 ![gif of community project page](assets/voting.gif)
 
 - If the impact goals are met, active community members can participate in a vote about the allocation of the remaining funds. They can distribute their tokens to different projects according to their preferences. Tokens can not be traded to prevent fraudulent use.
@@ -69,7 +67,6 @@ The features of Chainge are presented in regards to the nodes of the WWF diagram
 
 ## Gatherer
 
-![screenshot of submit action page](assets/submitAction.jpg)
 ![gif of submit action page](assets/submitAction.gif)
 
 - The project initiator is able to define positive actions that the citizens can take to support the campaign. Each action automatically rewards a predefined amount of voting tokens and Ether to the citizen after successful completion.
