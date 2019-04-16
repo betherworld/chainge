@@ -4,7 +4,7 @@
 
 _Disclaimer: This is a hackathon project that was built over the course of two days by students of ETH Zurich. It is by no means perfect. Don’t use it in a real setting, but feel free to be inspired for your own projects._
 
-#### Check out our powerpoint slides here: [PPP](https://github.com/betherworld/chainge/raw/master/assets/BETH%20Slides%20Chainge.pptx) 
+#### Check out our powerpoint slides here: [PPP](https://github.com/betherworld/chainge/raw/master/assets/BETH%20Slides%20Chainge.pptx) and our report here: [PDF](https://docs.google.com/document/d/1Zef3jdUjU9hzPVFTEBVkdJOIrQSRWkZp0VhR24tMAC0/edit?usp=sharing)
 
 #### Demo Video
 [![Youtube](assets/image.png)](https://youtu.be/c3ifge-GFts "Youtube")
